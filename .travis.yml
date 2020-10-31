@@ -1,0 +1,23 @@
+branches:
+  only:
+    - master
+
+jobs:
+  include:
+    - stage: test
+      name: "Component Tests"
+      language: node_js
+      node_js:
+        - "12"
+      install:
+        - npm install
+      before_script:
+        - npm run lint
+      script:
+        - npm test
+      after_script:
+        - npm run test:coveralls
+
+notifications:
+  on_success: change
+  on_failure: always
