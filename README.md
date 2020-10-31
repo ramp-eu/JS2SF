@@ -1,3 +1,6 @@
+## Requirements for the Mid-Term Review: [here](docs/README.md) 
+<hr />
+
 # <TITLE>
 
 [![License: MIT](https://img.shields.io/github/license/ramp-eu/TTE.project1.svg)](https://opensource.org/licenses/MIT)
