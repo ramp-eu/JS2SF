@@ -28,9 +28,6 @@ To clean up all data and images use:
 
 docker-compose --log-level ERROR -p fiware down -v --remove-orphans
 
-To load the initial data into the context broker use:
-
-./DataGenerator
 
 
 If you have a problem starting the crate-db container on Linux, check the logs:
