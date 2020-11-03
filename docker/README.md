@@ -1,66 +1,57 @@
-# README.md for DockerHub
+# optidrive
+The docker-compose file is used to start up the following containers:
 
-```
-Amend as necessary...
-```
+- orion: The FIWARE Orion Context Broker which will receive requests using NGSI
+- quantumleap: MongoDB database: Used by the Orion Context Broker to hold context data information such as data entities, subscriptions and registrations
+- mongo-db: FIWARE QuantumLeap subscribe to context changes and persist them into a CrateDB database
+- crate-db: CrateDB database: Used as a data sink to hold time-based historical context data, offers an HTTP endpoint to interpret time-based data queries
+- grafana: Grafana time series analytics tool. Grafana is used to build and display dashboards 
 
-## How to build an image
+All containers are configured to automatically start after a reboot.
 
-The [Dockerfile](https://github.com/jason-fox/TTE.project1/blob/master/docker/Dockerfile) associated with this image can
-be used to build an image in several ways:
+The ports and versions are defined in a separate .env file.
 
--   By default, the `Dockerfile` retrieves the **latest** version of the codebase direct from GitHub (the `build-arg` is
-    optional):
+A service script is provided to easily create, start and stop the containers.
+To obtain the necessary Docker images locally use:
 
-```console
-docker build -t <component> . --build-arg DOWNLOAD=latest
-```
+sudo ./services create    
 
--   You can alter this to obtain the last **stable** release run this `Dockerfile` with the build argument
-    `DOWNLOAD=stable`
+To initialise and startup the containers use:
 
-```console
-docker build -t <component> . --build-arg DOWNLOAD=stable
-```
+sudo ./services start
 
--   You can also download a specific release by running this `Dockerfile` with the build argument `DOWNLOAD=<version>`
+To stop the containers (data will be preserved) use :
 
-```console
-docker build -t <component> . --build-arg DOWNLOAD=1.7.0
-```
+sudo ./services stop
 
-## Building from your own fork
+To clean up all data and images use:
 
-To download code from your own fork of the GitHub repository add the `GITHUB_ACCOUNT`, `GITHUB_REPOSITORY` and
-`SOURCE_BRANCH` arguments (default `master`) to the `docker build` command.
+docker-compose --log-level ERROR -p fiware down -v --remove-orphans
 
-```console
-docker build -t <component> . \
-    --build-arg GITHUB_ACCOUNT=<your account> \
-    --build-arg GITHUB_REPOSITORY=<your repo> \
-    --build-arg SOURCE_BRANCH=<your branch>
-```
+To load the initial data into the context broker use:
 
-## Building from your own source files
+./DataGenerator
 
-Alternatively, if you want to build directly from your own sources, please copy the existing `Dockerfile` into file the
-root of the repository and amend it to copy over your local source using :
 
-```Dockerfile
-COPY . /opt/component/
-```
+If you have a problem starting the crate-db container on Linux, check the logs:
+sudo docker logs crate-db
+[2020-10-26T10:27:51,427][INFO ][o.e.b.BootstrapChecks    ] [Marchkopf] bound or publishing to a non-loopback address, enforcing bootstrap checks
+ERROR: [1] bootstrap checks failed
+[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
 
-Full instructions can be found within the `Dockerfile` itself.
+https://crate.io/docs/crate/howtos/en/latest/deployment/containers/docker.html#troubleshooting
+The most common issue when running CrateDB on Docker is a failing bootstrap check because the memory map limit is too low. This can be adjusted on the host system.
 
-### Using PM2
+https://crate.io/docs/crate/howtos/en/latest/admin/bootstrap-checks.html#bootstrap-checks
 
-The Component within the Docker image can be run encapsulated within the [pm2](http://pm2.keymetrics.io/) Process
-Manager by adding the `PM2_ENABLED` environment variable.
+Edit /etc/sysctl.conf and configure:
 
-```console
-docker run --name component -e PM2_ENABLED=true -d fiware/component-ul
-```
+vm.max_map_count = 262144
 
-Use of pm2 is **disabled** by default. It is unnecessary and counterproductive to add an additional process manager if
-your dockerized environment is already configured to restart Node.js processes whenever they exit (e.g. when using
-[Kubernetes](https://kubernetes.io/))
+To apply this change, run:
+
+$ sudo sysctl -p
+
+This command will this reload all settings from /etc/sysctl.conf.
+
+Now you can restart the docker container.
