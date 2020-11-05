@@ -1,5 +1,6 @@
 The user interface of our experiment is created in Grafana. We created three different Dashboards.
 All data on the dashboard is taken from a timebased database (cratedb) and is written into this database by the OCB
+
 Roboticcell_Dashboard_final: represents the state of the robotic cell
                              on top you can select which cell you want to see
                              we show following data : pallets in the cell, state of the robot, state of vacuum
