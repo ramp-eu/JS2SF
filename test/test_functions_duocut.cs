@@ -1,4 +1,18 @@
-﻿using System;
+
+/*These functions are implemented to be used without the hmi running. They do not need extra data from the robot of hmi but fill out one or more values on the OCB*/
+/*Following sequence is possible :
+ClearAllPallets()    All pallets are empty now
+UpdatePalletInfo()   Data is filled in Pallet 4 and the time of loading of the pallet is set
+UpdatePalletDestinationShopFloor()   The destination of pallet 4 is set on to the shopfloor
+UpdateErrorInfo()    Rises error7 on the duocut robot
+UpdateVacuumPumpInfo(true)    Turns vacuumpump on
+UpdateVacuumPumpInfo(false)    Turns vacuumpump off
+UpdateRobotInfo()      Gives the robot cell values for axes 1-6
+*/
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +22,16 @@ using RestSharp;
 
 namespace Renier_CL
 {
+    private readonly RestClient m_client;
+    private readonly RestClient m_RenierServiceClient;
+    
+    public ODFiware(Form_main form)  
+        {
+            
+            m_client = new RestClient("http://130.188.160.108:1026/");  // Orion Context Broker Server in Finland
+            m_RenierServiceClient = new RestClient("http://192.168.111.12:4000/");  //FlexEdge HMI Renier Optidrive Web Service
+           
+        }
     public class ODFiware
     {
         #region variables
