@@ -17,16 +17,14 @@ Copy all files to a directory on your pc. Make sure there is a connection to the
    QRM.exe
    ManufacturabilityPallet.exe palletNumber.
    ManufacturabilityPiece.exe pieceID
-This executable is calling a webhost (at this moment this host is running on our local server). The code to start and generate this server is in the file server.js in the src directory
+This executable are called by a webhost (at this moment this host is running on our local server). The code to start and generate this server is in the filse server.js and index.html in the src directory. You will have to adapt paths to the right places to get this working.
 
-Usage: QRM.exe
-
-Installation : Copy all files to a directory on your pc. Make sure there is a  connection to the webserver and run the executable
+Usage example : QRM.exe or http://192.168.111.12:4000/qrm in case the webserver is launched. This allows us to call this service from everywhere in our internal network.
 
 
 Two Virtual robots. Each one on a separate PC. Special software and license need to be available to get this working.
 
-
+In the source directory you can find a file duocut_odfiware and flexedge_odfiware. These are the source code of our two classes (one for each robotic cell) taking care of the data updates on the OCB. This code is written in C sharp and should make it possible to write data to the context broker. If doing so please let us know if we have to disconnect our virtual robot form the OCB otherwise data will be mixed by the the two systemes and results can be corrupted.
 
 At this moment the OCB is filled with data coming from our virtual robots. However it is not possible to generate simulation data for the robot without having the virtual (or the real) robot up and running. 
 If needed we can turn on the virtual robots for a while and start some programs running for some hours. During this time it is possible for you to investigate the behaviour of all the components of the demonstartion.
