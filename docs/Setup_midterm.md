@@ -11,6 +11,8 @@ In our office we have 4PC's. Each of them is running a particular software:
   - One IPC running the HMI software for the Duo Cut installation. This HMI is connected to the context broker and update pallet states and its robotic cell state.
   - One IPC running the HMI software for the Flex Edge installation. This HMI is connected to the context broker and update pallet states and its robotic cell state.
 
+The IPC of the FlexEdge installation is used as web server to perform the QRM logic and the manufacturability check.
+
 The HMI software is developped in C sharp using the Visual Studio environment.
 
 The connection between the virtual robot and the IPC is realized using Kuka Connect software.
