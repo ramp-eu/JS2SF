@@ -30,7 +30,7 @@ factory services in order to make smart decisions on the shopfloor. Give feedbac
 about the status and the progress of the production.
 
 ## Setup Overview
-
+### Mid-term-setup-implementation-description
 A more detailed description of the setup is available here [Setup Description](Setup_midterm.md)
 ```
 Overview the Docker-Based Implementation contributed in this Setup (This section is associated with the slide "Setup Overview: Docker-based Implementation" in D3)
