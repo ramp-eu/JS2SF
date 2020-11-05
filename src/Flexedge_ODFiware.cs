@@ -159,37 +159,6 @@ namespace P0296_HMI
             }
         }
 
-        //private void UpdatePieceInfo()
-        //{
-        //    var request = new RestRequest("v2/entities/urn:ngsi-ld:Piece:FlexEdgePiece/attrs", RestSharp.DataFormat.Json);
-        //    request.Method = Method.POST;
-        //    request.AddHeader("Content-Type", "application/json");
-
-        //    string currentPieceID = String.Empty;
-        //    double currentLength = 0;
-        //    double currentWidth = 0;
-        //    double currentHeight = 0;
-        //    if (m_slab.Sendstuk != null)
-        //    {
-        //        currentPieceID = m_slab.Sendstuk.ID.ToString();
-        //        //currentLength = m_slab.Sendstuk.Length;
-        //        //currentWidth = m_slab.Sendstuk.Width;
-        //        //currentHeight = m_slab.Sendstuk.Height;
-        //    }
-
-        //    request.AddJsonBody(new
-        //    {
-        //        pieceID = new { type = "Text", value = currentPieceID },
-        //    });
-
-        //    //length = new { type = "Number", value = currentLength },
-        //    //    width = new { type = "Number", value = currentWidth },
-        //    //    height = new { type = "Number", value = currentHeight }
-
-
-        //    var response = m_client.Execute(request);
-        //}
-
         public void UpdateFlexEdgePieceInfo(string stukID, bool stukOnrobot, double gewicht)
         {
             var request = new RestRequest("v2/entities/urn:ngsi-ld:Piece:FlexEdgePiece/attrs");
@@ -368,49 +337,7 @@ namespace P0296_HMI
             }
         }
 
-        private ObservableCollection<P0296stuk> CreateStukList(string palletNr)
-        {
-            ObservableCollection<P0296stuk> stuklist = new ObservableCollection<P0296stuk>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ODdatabase.connectionstring))
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    SqlDataReader reader;
-                    cmd.CommandText = "SELECT Id, PalletID, PieceID, Length, Width, Height, Merk, Klant, PalletPos, ODslabID,TimeAdded FROM T_Pallets WHERE PalletID = @PalletId ORDER BY PalletPos";
-                    cmd.Parameters.AddWithValue("@palletid", palletNr);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = connection;
-
-                    reader = cmd.ExecuteReader();
-
-                    //List<string> returner = new List<string>();
-                    List<List<string>> returner = new List<List<string>>();
-                    while (reader.Read())
-                    {
-                        returner.Add(new List<string>());
-                        for (int i = 0; i < reader.FieldCount; ++i)
-                        {
-                            returner[returner.Count - 1].Add(reader[i].ToString());
-                        }
-                        P0296stuk stuk = new P0296stuk(returner[returner.Count - 1]);
-                        App.Current.Dispatcher.Invoke((Action)delegate
-                        {
-                            stuklist.Add(stuk);
-                        });
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-               
-            }
-
-            return stuklist;
-
-        }
-
+        
         #endregion
 
 
