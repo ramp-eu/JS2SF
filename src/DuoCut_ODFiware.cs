@@ -119,35 +119,6 @@ namespace Renier_CL
             var response = m_client.Execute(request);
         }
 
-        private void UpdateVacuumPumpInfo()
-        {
-            var request = new RestRequest("v2/entities/urn:ngsi-ld:VacuumPump:DuoCutPump/attrs"); //, RestSharp.DataFormat.Json );
-            request.Method = Method.POST;
-            request.AddHeader("Content-Type", "application/json");
-
-            // https://stackoverflow.com/questions/43546287/how-to-create-a-complex-json-object-using-c-sharp/43546386
-
-            int seconds = DateTime.Now.Second;
-            double newVacuumLevel = 0.9 + (seconds / 1000.0);
-            if ( (seconds % 3) == 0)
-            {
-                newVacuumLevel = 0.1 + (seconds / 1000.0);
-            }
-            //0,9 rbvacuumoff anders 0
-            request.AddJsonBody(new
-            {
-                vacuumLevel = new { type = "Number", value = newVacuumLevel }
-            });
-
-            IRestResponse response = m_client.Execute(request);
-
-            //IRestResponse t = Task.Factory.StartNew(() => {
-            //    // ...
-            //     _client.Execute(request);
-            //}); 
-
-        }
-
         public void UpdateVacuumPumpInfo(bool isOn)
         {
             var request = new RestRequest("v2/entities/urn:ngsi-ld:VacuumPump:DuoCutPump/attrs"); 
