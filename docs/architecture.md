@@ -25,5 +25,5 @@ Configuration of the datamodel and subscriptions are explained in the docker com
 All data models we use to communicate with the OCB we try to realise following the NGSI. More info on the used data model can be found at https://github.com/smart-data-models/incubated/tree/master/DIH2/JS2SF
 
 From within the HMI we are running the SFS on the data in the context broker. 
-          QRM : Everytime a pallet is placed on/ or taken from the shopfloor this service is called and recalculates the priority of all pallets.
-          Manufacturability : Everytime a pallet is completely loaded all pieces are calculated and the manufacturability of the pallet is written to the OCB
+          - QRM : Everytime a pallet is placed on/ or taken from the shopfloor this service is called and recalculates the priority of all pallets.
+          - Manufacturability : Everytime a pallet is completely loaded all pieces are calculated and the manufacturability of the pallet is written to the OCB
