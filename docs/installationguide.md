@@ -1,5 +1,10 @@
+All components necessary to do this are uploaded on the RAMP platform using the upload link between Renier and Optidrive. With every uploaded component ther is a short md file about the component and its installation.
+
 We have to install following softwares to get the demo running :
-in grafana : 
+
+On the VTT server :  see docker file + explanation over there about setting up the OCB, cratedb and quantumleap
+
+In grafana : install the developped dahboards (is already done at the server). The 3 json file for this is on the ramp server.
 
 On an IPC : HMI of the two robotic cells. 
 
