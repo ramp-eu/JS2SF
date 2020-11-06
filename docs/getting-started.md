@@ -20,8 +20,9 @@ In the src directory i made two files :
   
 In these files i made function which are independent from our hmi. By calling them you change one or more values on the ocb and you can see the reaction of the grafana dashboard.
 On top of the file there is the connection to the server which we use to connect to the server.
-in test_functions_duocut you have following possibilities :
+
 For the Flexedge robot :
+
     - UpdateVacuumPumpInfo(true) : Turns the vacuumpump on and changes the vac level to -0.85
     - UpdateVacuumPumpInfo(false) : Turns the vacuumpump off and changes the vac level to -0.05
     - UpdateRobotInfo() : Displays values for the different axes from the robot and also a program name, the total number of pieces and the actual piece number
@@ -34,6 +35,7 @@ For the Flexedge robot :
 
 
 For the duocut robot :
+
     - ClearAllPallets()    All pallets are empty now
     - UpdatePalletInfo()   Data is filled in Pallet 4 and the time of loading of the pallet is set
     - UpdatePalletDestinationShopFloor()   The destination of pallet 4 is set on to the shopfloor
