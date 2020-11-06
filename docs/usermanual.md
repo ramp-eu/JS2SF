@@ -16,6 +16,7 @@ For selecting another dashboard search for the manage button on the right side a
 
 ## Pallet
  The pallet data in the OCB contains following data :
+ 
       * ID (number)
       * list of pieces
       * Currentlocation
@@ -33,7 +34,8 @@ For the handheld device : create a qr code from the url to the Pallet dashboard_
 
 ## Robotic cell and robot
 
-The robots are continously updating their states to the context broker. Main data which is transferred is 
+The robots are continously updating their states to the context broker. Main data which is transferred are :
+
       * Status of the robot (active, stopped ....)
       * Errornr + errormessages
       * Axis values (A1-A6)
