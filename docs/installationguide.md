@@ -6,7 +6,7 @@ All components used in midterm the demonstartion are uploaded on the RAMP platfo
 
 We have to install following softwares to get the demo running :
 
-- On the VTT server :  you can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md).Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
+- On the VTT server :  you can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md). Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
 
 - In grafana : install the developped dahboards (is already done at the server). The 3 json file for this are uploaded on the ramp platform.
 
