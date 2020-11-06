@@ -9,6 +9,7 @@ Also cratedb and quantumleap should be running after following these steps.
 ### Grafana
 Install grafana on the server and load the three json files uploaded tot the ramp platform.
 
+
 ### Factory side
 For testing the setup there are two options:
 
@@ -51,3 +52,9 @@ For the duocut robot :
     - UpdateVacuumPumpInfo(false)    Turns vacuumpump off
     - UpdateRobotInfo()      Gives the robot cell values for axes 1-6
 
+### Recommendation to start your tests
+To get a good overview and to understand what is happening on the pallets, the best thing to do when starting is to clear the pallets. At this moment pallets are defined with a number from 1 to 20.
+First fill out the item current position and eventually the going to field.
+Then start filling the pallets by adding items to the piecelist of the pallets. In the grafana dashboard you should see the piecelist growing and that destinations have the right values.
+
+When a pallet is filled you can move it to the shopfloor : UpdatePalletDestinationShopFloor(int palletnr) on the duocut_odfiware functions.
