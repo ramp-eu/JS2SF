@@ -13,6 +13,9 @@ For testing the setup there are two options:
 #### Test at optidrive (online)
 We do it together using the virtual robots at Optidrive (using remote connections and using the VTT server). For this we have to fix a date. You will have control of all data flows and can take the time you need to invest what has been done.
 
+#### Test using example data (bash file)
+To acquire example data the bash file, DataGenerator, can be run. This will load some data into the system and can be checked in the Grafana dashboard.
+
 #### Test without virtual robot
 The test is done independly from our virtual robots.
 In my opinion it is too complex to make a virtual robot and its hmi working at your site. So for this option i provide some functions (written in c sharp, but convertable to json).
