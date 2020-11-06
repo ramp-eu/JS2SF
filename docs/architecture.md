@@ -19,6 +19,8 @@ All data on the dashboard is taken from a timebased database (cratedb) and is wr
 
 - Pallet_Dashboard_Operator : is similar to the Pallet_Dashboard_Manager but does not show the logged data
                             
+By scanning the barcode on the pallet (using a smart phone or tablet) the operator can see the grafana dashboard from that pallet.
+
 At this moment the deployment on the VTT server is limited to QuantumLeap, CrateDB and the OCB. 
 Configuration of the datamodel and subscriptions are explained in the docker compose part.
 
