@@ -30,7 +30,7 @@ factory services in order to make smart decisions on the shopfloor. Give feedbac
 about the status and the progress of the production. Make sure that the data of the pallet is easiliy accessible for the operator (handheld device).
 
 ## Setup Overview
-![Setup Overview](./images/setup.png)
+![Overview](./images/overview.png)
 ### Mid-term-setup-implementation-description
 A more detailed description of the setup is available here [Setup Description](Setup_midterm.md)
 ```
