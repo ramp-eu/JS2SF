@@ -1,7 +1,7 @@
 # API usage
 
 ## API Orion (NGSIv2)
-The API for the Orion context broker (NGSIv2) can be found at [link to API of NGSIv2 API](https://fiware-orion.readthedocs.io/en/master/user/walkthrough_apiv2/index.html).
+The API for the Orion context broker (NGSIv2) can be found at [link to API of NGSIv2](https://fiware-orion.readthedocs.io/en/master/user/walkthrough_apiv2/index.html).
 
 ## Datamodel
 The datamodel can be found at [link to datamodel](https://github.com/smart-data-models/incubated/tree/master/DIH2/JS2SF).
