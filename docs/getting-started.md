@@ -18,7 +18,7 @@ In the src directory i made two files :
       - test_functions_duocut
       - test_functions_flexedge
   
-In these files i made function which are independent from our hmi. By calling them you change one or more values on the ocb and you can see the reaction of the grafana dashboard.
+In these files i made functions which are independent from our hmi. By calling them you change one or more values on the ocb and you can see the reaction of the grafana dashboard.
 On top of the file there is the connection to the server which we use to connect to the server.
 
 For the Flexedge robot :
