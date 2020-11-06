@@ -16,10 +16,10 @@ For selecting another dashboard search for the manage button on the right side a
 
 ## Pallet
 The pallet data in the OCB contains following data :
-      - ID (number)
-      - list of pieces
-      - Currentlocation
-      - NextLocation
+      * ID (number)
+      * list of pieces
+      * Currentlocation
+      * NextLocation
 When loading/unloading the pallet the piece list is updated. 
 With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. Both fields are updated when a pallet is entering or leaving a robotic cell.
 
@@ -34,12 +34,12 @@ For the handheld device : create a qr code from the url to the Pallet dashboard_
 ## Robotic cell and robot
 
 The robots are continously updating their states to the context broker. Main data which is transferred is 
-      - Status of the robot (active, stopped ....)
-      - Errornr + errormessages
-      - Axis values (A1-A6)
-      - Status + level of the vacuum
-      - Number of pieces done and number of pieces to do
-      - List of pallets present in the cell (in or outgoing pallet)
+      * Status of the robot (active, stopped ....)
+      * Errornr + errormessages
+      * Axis values (A1-A6)
+      * Status + level of the vacuum
+      * Number of pieces done and number of pieces to do
+      * List of pallets present in the cell (in or outgoing pallet)
       
 We made one dashboard for the robot cell :  Roboticcell_Dashboard_final: 
 
