@@ -15,11 +15,15 @@ You have to click once on the skip button before you see the grafana interface.
 For selecting another dashboard search for the manage button on the right side and you will see a list of available dashboards
 
 ## Pallet
-To get a good overview and to understand what is happening on the pallets, the best thing to do when starting is to clear the pallets. At this moment pallets are defined with a number from 1 to 20.
-First fill out the item current position and eventually the going to field.
-Then start filling the pallets by adding items to the piecelist of the pallets. In the grafana dashboard you should see the piecelist growing and that destinations have the right values.
+The pallet data in the OCB contains following data :
+      ID (number)
+      list of pieces
+      Currentlocation
+      NextLocation
+When loading/unloading the pallet the piece list is updated. 
+With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. 
 
-When a pallet is filled you can move it to the shopfloor : UpdatePalletDestinationShopFloor(int palletnr) on the duocut_odfiware functions.
+
 
 Following dashboards are available for pallets :        
 * Pallet_Dashboard_Manager 
