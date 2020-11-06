@@ -15,13 +15,13 @@ You have to click once on the skip button before you see the grafana interface.
 For selecting another dashboard search for the manage button on the right side and you will see a list of available dashboards
 
 ## Pallet
-The pallet data in the OCB contains following data :
+ The pallet data in the OCB contains following data :
       * ID (number)
       * list of pieces
       * Currentlocation
       * NextLocation
-When loading/unloading the pallet the piece list is updated. 
-With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. Both fields are updated when a pallet is entering or leaving a robotic cell.
+ When loading/unloading the pallet the piece list is updated. 
+ With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. Both  fields are updated when a pallet is entering or leaving a robotic cell.
 
 Following dashboards are available for pallets :        
 * Pallet_Dashboard_Manager 
