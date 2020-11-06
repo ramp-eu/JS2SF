@@ -1,12 +1,12 @@
 # Installation guidelines
 
-[Back](https://github.com/ramp-eu/JS2SF/tree/master/docker/readme.md)
+[Back](READ.md)
 
 All components used in midterm the demonstartion are uploaded on the RAMP platform using the upload link between Renier and Optidrive. With every uploaded component there is a short md file about the component and its installation.
 
 We have to install following softwares to get the demo running :
 
-- On the VTT server :  you can find more details in the document [docker_readme](README.md).Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
+- On the VTT server :  you can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md).Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
 
 - In grafana : install the developped dahboards (is already done at the server). The 3 json file for this are uploaded on the ramp platform.
 
