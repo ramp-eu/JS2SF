@@ -1,5 +1,9 @@
 # API usage
 
+## Datamodel
+The datamodel can be found at [link to datamodel!](https://github.com/smart-data-models/incubated/tree/master/DIH2/JS2SF).
+
+
 ### Creation of a VacuumPump
 ```
 curl -iX POST \
