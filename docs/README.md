@@ -27,7 +27,7 @@ different products can be mixed in the production flow.
 #### Proposed Solution
 Connect the robots and their HMI with the OCB. Collect data about the production process. Run some smart 
 factory services in order to make smart decisions on the shopfloor. Give feedback to the operator and management 
-about the status and the progress of the production.
+about the status and the progress of the production. Make sure that the data of the pallet is easiliy accessible for the operator (handheld device).
 
 ## Setup Overview
 ### Mid-term-setup-implementation-description
