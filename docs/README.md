@@ -79,7 +79,7 @@ use the demo.
 ```
 
 #### Testing
-
+For this testing i made following document : [getting-started](getting-started.md)
 ```
 This section will contribute step-by-step procedures to perform a basic end-to-end test of the setup 
 features described in the mid-term review demo. For each test, the definition of the step-by-tep procedure
