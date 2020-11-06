@@ -1,5 +1,8 @@
 # Architecture
 
+![Overview Architecture](./images/architecture.png)
+
+
 The user interface of our experiment is created in Grafana. We created three different Dashboards.
 All data on the dashboard is taken from a timebased database (cratedb) and is written into this database by the OCB
 
