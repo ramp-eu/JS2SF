@@ -33,11 +33,17 @@ For the handheld device : create a qr code from the url to the Pallet dashboard_
 
 ## Robotic cell and robot
 
+The robots are continously updating their states to the context broker. Main data which is transferred is 
+      - Status of the robot (active, stopped ....)
+      - Errornr + errormessages
+      - Axis values (A1-A6)
+      - Status + level of the vacuum
+      - Number of pieces done and number of pieces to do
+      - List of pallets present in the cell (in or outgoing pallet)
+      
+We made one dashboard for the robot cell :  Roboticcell_Dashboard_final: 
 
-We made one dashboard for the robot cell :   Roboticcell_Dashboard_final: 
-
-On the top of the dashboard you can select which cell you want to be dispalyed in the dashboard.
-                      
+On the top of the dashboard you can select which cell you want to be dispalyed in the dashboard.               
                  
 
 ## Foreseen functions
