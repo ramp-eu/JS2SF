@@ -1,4 +1,4 @@
-# User Guide Linesµ
+# User Guide Lines
 
 In general there are two different structures where you can put data :
 - pallets
