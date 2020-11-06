@@ -16,27 +16,28 @@ In my opinion it is too complex to make a virtual robot and its hmi working at y
 In the src directory i made two files :
   - test_functions_duocut
   - test_functions_flexedge
+  
 In these files i made function which are independent from our hmi. By calling them you change one or more values on the ocb and you can see the reaction of the grafana dashboard.
 On top of the file there is the connection to the server which we use to connect to the server.
 in test_functions_duocut you have following possibilities :
 For the Flexedge robot :
- * UpdateVacuumPumpInfo(true) : Turns the vacuumpump on and changes the vac level to -0.85
- * UpdateVacuumPumpInfo(false) : Turns the vacuumpump off and changes the vac level to -0.05
- * UpdateRobotInfo() : Displays values for the different axes from the robot and also a program name, the total number of pieces and the actual piece number
- * UpdateRoboticCellInfo(11,12) : Changes the id of the in and output pallet to 11 and 12
- * UpdateFlexEdgePieceInfo() : updates the data of the actual piece on the robot
- * UpdateErrorInfo(5) : raises errornuber 5, message is allways the same (Demo Error)
- * UpdateQRM() : Runs the qrm service if it is running on the reachable webhost
- * UpdatePalletInfo(12) : Places 5 pieces on pallet 12
- * Palletuitcell(12) : Places the actual position of pallet 12 to unload and the next position to Load
+    * UpdateVacuumPumpInfo(true) : Turns the vacuumpump on and changes the vac level to -0.85
+    * UpdateVacuumPumpInfo(false) : Turns the vacuumpump off and changes the vac level to -0.05
+    * UpdateRobotInfo() : Displays values for the different axes from the robot and also a program name, the total number of pieces and the actual piece number
+    * UpdateRoboticCellInfo(11,12) : Changes the id of the in and output pallet to 11 and 12
+    * UpdateFlexEdgePieceInfo() : updates the data of the actual piece on the robot
+    * UpdateErrorInfo(5) : raises errornuber 5, message is allways the same (Demo Error)
+    * UpdateQRM() : Runs the qrm service if it is running on the reachable webhost
+    * UpdatePalletInfo(12) : Places 5 pieces on pallet 12
+    * Palletuitcell(12) : Places the actual position of pallet 12 to unload and the next position to Load
 
 
 For the duocut robot :
-* ClearAllPallets()    All pallets are empty now
-* UpdatePalletInfo()   Data is filled in Pallet 4 and the time of loading of the pallet is set
-* UpdatePalletDestinationShopFloor()   The destination of pallet 4 is set on to the shopfloor
-* UpdateErrorInfo()    Rises error7 on the duocut robot
-* UpdateVacuumPumpInfo(true)    Turns vacuumpump on
-* UpdateVacuumPumpInfo(false)    Turns vacuumpump off
-* UpdateRobotInfo()      Gives the robot cell values for axes 1-6
+    * ClearAllPallets()    All pallets are empty now
+    * UpdatePalletInfo()   Data is filled in Pallet 4 and the time of loading of the pallet is set
+    * UpdatePalletDestinationShopFloor()   The destination of pallet 4 is set on to the shopfloor
+    * UpdateErrorInfo()    Rises error7 on the duocut robot
+    * UpdateVacuumPumpInfo(true)    Turns vacuumpump on
+    * UpdateVacuumPumpInfo(false)    Turns vacuumpump off
+    * UpdateRobotInfo()      Gives the robot cell values for axes 1-6
 
