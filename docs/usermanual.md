@@ -1,14 +1,27 @@
-# User Guide Lines
+# User Guide Linesµ
 
+In general there are two different structures where you can put data :
+- pallets
+- robotic cell
 
-To get a good overview the best thing to do when starting is to clear the pallets. At this moment pallets are defined with a number from 1 to 20.
+## Pallet
+To get a good overview and to understand what is happening on the pallets, the best thing to do when starting is to clear the pallets. At this moment pallets are defined with a number from 1 to 20.
 First fill out the item current position and eventually the going to field.
-Then start filling the pallets by adding items to the piecelist of the pallets. In the grafana dashboard you should see the piecelist growing and tha destination have the right value.
+Then start filling the pallets by adding items to the piecelist of the pallets. In the grafana dashboard you should see the piecelist growing and that destinations have the right values.
 
 When a pallet is filled you can move it to the shopfloor : UpdatePalletDestinationShopFloor(int palletnr) on the duocut_odfiware functions.
 
-When using the functions UpdateRoboticCellInfo() and UpdateRobotInfo() you can update the values of thes items on the OCB. Both functions exist for both robotic cells.
 
+
+## Robotic cell and robot
+When using the functions UpdateRoboticCellInfo() and UpdateRobotInfo() you can update the values of thes items on the OCB. Both functions exist for both robotic cells.
+In the grafana dashboard you can find back the values you have put in the OCB.
+
+
+
+
+
+## Foreseen functions
 Hereby a short description of the functions available for every robotic cell.
 
 #### Functions in DuoCut_ODfiware.cs
