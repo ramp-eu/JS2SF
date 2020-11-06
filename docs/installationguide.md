@@ -1,16 +1,18 @@
-All components necessary to do this are uploaded on the RAMP platform using the upload link between Renier and Optidrive. With every uploaded component ther is a short md file about the component and its installation.
+# Installation guidelines
+
+All components used in midterm the demonstartion are uploaded on the RAMP platform using the upload link between Renier and Optidrive. With every uploaded component there is a short md file about the component and its installation.
 
 We have to install following softwares to get the demo running :
 
-On the VTT server :  see docker file + explanation over there about setting up the OCB, cratedb and quantumleap
+- On the VTT server :  see docker file + explanation over there about setting up the OCB, cratedb and quantumleap
 
-In grafana : install the developped dahboards (is already done at the server). The 3 json file for this are on the ramp server.
+- In grafana : install the developped dahboards (is already done at the server). The 3 json file for this are uploaded on the ramp platform.
 
-On an IPC : HMI of the two robotic cells.The Human Machine Interface software makes connection with a Kuka Robot using Kuka Connect.
-It allows configuration of jobs for the robot and sents the demanded parameters to the robot. A part of the HMI is performing the connection between the Orion Context Broker and the Robot and processs data.
-For installation you have to copy the delivered files into a directory of your pc.
-Also install the settingsfile on the C:/Optidrive directory.
-To launch the program : Renier2.exe 
+- On an IPC : HMI of the two robotic cells.The Human Machine Interface software makes connection with a Kuka Robot using Kuka Connect.
+   * It allows configuration of jobs for the robot and sents the demanded parameters to the robot. A part of the HMI is performing the connection between the Orion Context Broker and the Robot and processs data.
+   * For installation you have to copy the delivered files into a directory of your pc.
+   * Also install the settingsfile on the C:/Optidrive directory.
+   * To launch the program : Renier2.exe 
 
 Next to this you have to run two smart factury services (QRM and Manufacturability). To get this running you need to do the following :
 Copy all files to a directory on your pc. Make sure there is a connection to the webserver and run the executable :
