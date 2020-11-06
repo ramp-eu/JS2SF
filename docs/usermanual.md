@@ -18,11 +18,15 @@ For selecting another dashboard search for the manage button on the right side a
  The pallet data in the OCB contains following data :
  
       * ID (number)
-      * list of pieces
+      * List of pieces
       * Currentlocation
       * NextLocation
- When loading/unloading the pallet the piece list is updated. 
- With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. Both  fields are updated when a pallet is entering or leaving a robotic cell.
+      * Manufacturability of the pallet
+      * Priority of the pallet
+When loading/unloading the pallet the piece list is updated. 
+Once the pallet is complete a Smart Factory Service is running and calculates if all pieces are suitable for the next production step. This value is stored in the manufacturability.
+With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. Both  fields are updated when a pallet is entering or leaving a robotic cell.
+After every manipulation of a pallet the QRM logic is updating the priority of all the pallets which are on the shop floor.
 
 Following dashboards are available for pallets :        
 * Pallet_Dashboard_Manager 
