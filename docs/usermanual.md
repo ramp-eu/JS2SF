@@ -16,26 +16,23 @@ For selecting another dashboard search for the manage button on the right side a
 
 ## Pallet
 The pallet data in the OCB contains following data :
-      ID (number)
-      list of pieces
-      Currentlocation
-      NextLocation
+      - ID (number)
+      - list of pieces
+      - Currentlocation
+      - NextLocation
 When loading/unloading the pallet the piece list is updated. 
-With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. 
-
-
+With the current location field it becomes easy to retrieve the pallet in the factory. The field next destination indicates where it has to go in the next production step. Both fields are updated when a pallet is entering or leaving a robotic cell.
 
 Following dashboards are available for pallets :        
 * Pallet_Dashboard_Manager 
 * Pallet_Dashboard_Operator 
 
-On the top of the dashboard you can select the id of the pallet you want to see.
+On the top side of the dashboard you can select the id of the pallet you want to see.
 
 For the handheld device : create a qr code from the url to the Pallet dashboard_operator. It can be scanned with a smartphone or tablet.
 
 ## Robotic cell and robot
-When using the functions UpdateRoboticCellInfo() and UpdateRobotInfo() you can update the values of thes items on the OCB. Both functions exist for both robotic cells.
-In the grafana dashboard you can find back the values you have put in the OCB.
+
 
 We made one dashboard for the robot cell :   Roboticcell_Dashboard_final: 
 
