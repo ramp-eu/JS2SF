@@ -17,6 +17,7 @@ For selecting another dashboard search for the manage button on the right side a
 
 ## Piece
 A piece in the OCB contains following data :
+
  	  * Piece ID (barcode indicating piece type, not unique)
 	  * Creation date
 	  * Manufacturability of the piece
