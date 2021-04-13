@@ -104,8 +104,7 @@ When user download the API it is obvious that they do not have a virtual robot a
 To tackle this shortcoming we will work out two use cases in detail (out of our own applications from the past years) and document this in detail. 
 
  
-
-The above description explains how we see the development of an API which might be useful for others. However implementing all of this at once is quite ambitious. Therefore we distinguish two different levels in our development. The first level is Condition monitoring. It stays close to what we have done in the experiment. It should be easily reachable though can give already added value to the user.
+The first level is Condition monitoring. It stays close to what we have done in the experiment. It should be easily reachable though can give already added value to the user.
 
 A second level could allow the user to do some ‘Configuration of the application’. In this case some key variables will become controllable for the user. 
 
