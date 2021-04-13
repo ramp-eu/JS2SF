@@ -5,7 +5,7 @@
 This project is part of [FIWARE](https://www.fiware.org/). For more information check the FIWARE Catalogue entry for
 [<chapter>](https://github.com/Fiware/catalogue/tree/master/<chapter>).
 
-![image-20210413114418187](.\image-20210413114418187.png)
+![image-20210413114418187](./image-20210413114418187.png)
 
 ## Introduction
 
@@ -19,7 +19,7 @@ The ROSE-AP will be defined as a software application (within the iPC infrastruc
 
  ·    The south port and its interface to communicate with the Kuka robot through the Kuka Connect Module. The south port interface determines the Kuka Connect Features your ROSE-AP is compliant with.
 
-![image-20210413115019521](.\image-20210413115019521.png)
+![image-20210413115019521](./image-20210413115019521.png)
 
 
 
@@ -30,7 +30,7 @@ More into detail there are two different kind of information (variables) that ca
 
 As an endpoint for our demonstrations and use cases we use the graphical user interface of Grafana. In this environment we developped a dashboard displaying all properties of the connected robot.
 
- ![image-20210413115152054](.\image-20210413115152054.png)
+ ![image-20210413115152054](./image-20210413115152054.png)
 
  
 
@@ -49,7 +49,7 @@ Benefits :
 - Make sure the Robot Controller is connected to the pc on which the RoseAP is running
 
 
-- [Installation Guide](.\KukaConnect_InstallationGuide.md)
+- [Installation Guide](./KukaConnect_InstallationGuide.md)
 
 - Configuration of Kuka Connect
 
