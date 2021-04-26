@@ -1,6 +1,6 @@
 # Installation guidelines
 
-[Back](READ.md)
+[Back](README.md)
 
 ##### 	Installation of Kuka Connect
 
