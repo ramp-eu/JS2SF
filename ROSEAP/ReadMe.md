@@ -112,12 +112,12 @@ Information about how to use the the connectivity kit can be found in the [User 
 
 ## API
 
-```text
+
 Definition of the API interface:
 
 Information about the API of  the <Name of component> can be found in the [API documentation](docs/api.md).
 
-```
+
 
 
 
