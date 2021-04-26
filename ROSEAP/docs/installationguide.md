@@ -7,11 +7,11 @@
 - Make sure the Robot Controller is connected to the pc on which the RoseAP is running
 
 
-- [KukaConnect Installation Guide](.\KukaConnect_InstallationGuide.md)
+- [KukaConnect Installation Guide](./KukaConnect_InstallationGuide.md)
 
-- [Configuration of Kuka Connect](.\KukaConnect_ConfigurationGuide.md)
+- [Configuration of Kuka Connect](./KukaConnect_ConfigurationGuide.md)
 
-- [Configuration of the Inputs and outputs of the robot](.\KukaIO_ConfigurationGuide.md)
+- [Configuration of the Inputs and outputs of the robot](./KukaIO_ConfigurationGuide.md)
 
 ##### 	Installation of the RoseAP
 
@@ -20,7 +20,7 @@
   - installing OCB, Quantumleap ....
   - Make it run
 
-- [Configuring the ROSE-AP](.\RoseAP_ConfigurationGuide)
+- [Configuring the ROSE-AP](./RoseAP_ConfigurationGuide)
 - Running the ROSE-AP
 
 ##### 	Installation/Configuration of Grafana
