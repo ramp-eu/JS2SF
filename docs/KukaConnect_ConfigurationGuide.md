@@ -12,7 +12,7 @@ Select “Main menu” -> “Configuration” -> “Connect Settings”.
 
 Note that this option is only accessible in user mode expert or higher.
 
- ![image-20210422122752404](docs/images/image-20210422122752404.png)
+ ![image-20210422122752404](/images/image-20210422122752404.png)
 
 The displayed properties are :
 
