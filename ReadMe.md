@@ -68,7 +68,7 @@ The ROSE-AP will be defined as a software application (within the iPC infrastruc
 
 
 
-![image-20210413115019521](doc/image/image-20210413115019521.png)
+![image-20210413115019521](doc/images/image-20210413115019521.png)
 
 
 
