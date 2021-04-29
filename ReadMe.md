@@ -68,7 +68,7 @@ The ROSE-AP will be defined as a software application (within the iPC infrastruc
 
 
 
-![image-20210413115019521](.\image-20210413115019521.png)
+![image-20210413115019521](./image-20210413115019521.png)
 
 
 
@@ -79,7 +79,7 @@ More into detail there are two different kind of information (variables) that ca
 
 As an endpoint for our demonstrations and use cases we use the graphical user interface of Grafana. In this environment we developed a dashboard displaying all properties of the connected robot.
 
- ![image-20210413115152054](.\image-20210413115152054.png)
+ ![image-20210413115152054](./image-20210413115152054.png)
 
  
 
