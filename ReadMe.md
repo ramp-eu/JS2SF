@@ -1,4 +1,4 @@
-## Connectivity Kit for Kuka  Robots             ![image-20210413114418187](.\image-20210413114418187.png)
+## Connectivity Kit for Kuka  Robots             ![image-20210413114418187](docs/images/image-20210413114418187.png)
 <hr />
 
 (making use of KukaConnect software option)
