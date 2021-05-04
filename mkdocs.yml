@@ -15,5 +15,5 @@ pages:
     - 'Installation Guide': 'installationguide.md'
   - 'User & Programmers Manual':
     - 'Architecture' : 'architecture.md'
-    - 'API' : 'api.md'
     - 'User Guide': 'usermanual.md'
+    - 'API' : 'api.md'
