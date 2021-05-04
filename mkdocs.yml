@@ -16,8 +16,8 @@ pages:
     - 'API' : 'api.md'
     - 'User Guide': 'usermanual.md'
   - 'Installation & Administration Manual': 
-    - 'Installation Guide': 'installationguide.md':
-      - 'Installing KukaConnect':'KukaConnect_InstallationGuide.md'
-      - 'Configuration of KukaConnect':'KukaConnect_ConfigurationGuide.md'
-      - 'Configuration of the I/O of the Robot':'KukaIO_ConfigurationGuide.md'
-      - 'Configuration of the RoseAP':'RoseAP_ConfigurationGuide.md'
+    - 'Installation Guide': 'installationguide.md'
+    - 'Installing KukaConnect':'KukaConnect_InstallationGuide.md'
+    - 'Configuration of KukaConnect':'KukaConnect_ConfigurationGuide.md'
+    - 'Configuration of the I/O of the Robot':'KukaIO_ConfigurationGuide.md'
+    - 'Configuration of the RoseAP':'RoseAP_ConfigurationGuide.md'
