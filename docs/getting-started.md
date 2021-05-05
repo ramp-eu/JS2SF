@@ -21,38 +21,60 @@ In order to run the preconfigured test with the robotsimulator, you need to foll
 We have to install following softwares to get the demo/test environment  running :
 
 Install cygwin tools on windows from https://www.cygwin.com/, accept all default suggestions during installation.
-After installation of Cygwin, add the dos2unix command to cygwin by executing:
+
+After installation of Cygwin, add the dos2unix command to cygwin by executing in command prompt with access to the cygwin installer:
+
 setup-x86_64.exe -q -P dos2unix
 
 Install Docker Desktop on Windows from https://docs.docker.com/docker-for-windows/install/, choose a Hyper-V backend.
 
-
-
 ### OCBServer using docker-compose.yml
 
 Start a cygwin terminal and go to the folder containing the docker-compose.yml file, for example:
+
 cd /cygdrive/c/Fiware/RoseAP/
 
 Make sure the script files have Linux line endings by executing :
+
 dos2unix DataGeneratorRoseAP
+
 dos2unix services
 
-A service script is provided to easily create, start and stop the containers. 
+To get the Orion Context Broker running a service script is provided to easily create, start and stop the containers. 
+
 To obtain the necessary Docker images locally use (this needs to be executed only once):
+
 ./services create
 
 To initialise and startup the Fiware Orion Context Broker containers use:
+
 ./services start
 
-To stop the containers (data will be preserved) use :
-/services stop
+You can test if the Orion Context Broker is running with:
 
-To clean up all data and images use:
-docker-compose --log-level ERROR -p fiware down -v --remove-orphans
+curl localhost:1026/version
+
+If the installation went well you'll get some Orion version information
+Also Cratedb, Quantumleap and Grafana should be running by now. 
 
 
+### RoseAP
 
-First thing to do is to get the Orion Context Broker running. Also cratedb and quantumleap should be running after following these steps. For this we created an docker compose file which is taking care of all components.
+- Configure the configuration file of the roseap (change the ip adres to  ???? )
+
+Open the 
+
+- Launch the RoseAP, Launch the Robotsimulator
+
+
+### Test with the limited robot simulator (live test)
+
+- Play with the data and  look at the behaviour of the dashboard.   By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
+
+
+### Old
+
+For this we created an docker compose file which is taking care of all components.
 
 - Follow the installation guide to install an Orion Context Broker on your pc. Use this docker compose file.  [Install OCB]( https://hub.docker.com/r/fiware/orion/)
 
@@ -65,17 +87,6 @@ First thing to do is to get the Orion Context Broker running. Also cratedb and q
 
 
 
-### RoseAP
-
-- Configure the configuration file of the roseap (change the ip adres to  ???? )
-
-- Launch the RoseAP, Launch the Robotsimulator
-
-
-
-### Test with the limited robot simulator (live test)
-
-- Play with the data and  look at the behaviour of the dashboard.   By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
 
 
 
@@ -107,3 +118,12 @@ Available functions :
 In the examples above you can see the variables of the robot which are stored on the Orion Context Broker. When using the function  UpdateRobotInfo() you can update the values of the items on the OCB.
 In the grafana dashboard you can find back the values you have put in the OCB.
 
+###  Stop the Orion Context Broker
+
+To stop the containers (data will be preserved) use :
+
+./services stop
+
+To clean up all data and images use (note that this will also remove your Grafana configuration) :
+
+docker-compose --log-level ERROR -p fiware down -v --remove-orphans
