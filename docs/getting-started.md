@@ -20,7 +20,11 @@ In order to run the preconfigured test with the robotsimulator, you need to foll
 
 We have to install following softwares to get the demo/test environment  running :
 
-### OCBServer
+Install cygwin tools
+
+dockerInstall 
+
+### OCBServer using dockercompose.yml
 
 First thing to do is to get the Orion Context Broker running. Also cratedb and quantumleap should be running after following these steps. For this we created an docker compose file which is taking care of all components.
 
@@ -68,9 +72,10 @@ Available functions :
     - UpdateErrorInfo(5) : raises errornuber 5, message is allways the same (Demo Error)
     
     List of separate functions for every 
-    
-    
-    
+
+
+​    
+​    
 
 ### Recommendation to start your tests
 In the examples above you can see the variables of the robot which are stored on the Orion Context Broker. When using the function  UpdateRobotInfo() you can update the values of the items on the OCB.
