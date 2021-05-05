@@ -8,7 +8,7 @@
 
 
 
-[Installation guide](installation.md)
+[Installation guide](installationguide.md)
 
 - [KukaConnect Installation Guide](KukaConnect_InstallationGuide.md)
 - [Configuration of Kuka Connect](KukaConnect_ConfigurationGuide.md)
