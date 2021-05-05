@@ -31,45 +31,50 @@ Install Docker Desktop on Windows from https://docs.docker.com/docker-for-window
 ### OCBServer using docker-compose.yml
 
 Start a cygwin terminal and go to the folder containing the docker-compose.yml file, for example:
-
+```
 cd /cygdrive/c/Fiware/RoseAP/
-
+```
 Make sure the script files have Linux line endings by executing :
-
+```
 dos2unix DataGeneratorRoseAP
-
 dos2unix services
-
+```
 To get the Orion Context Broker running a service script is provided to easily create, start and stop the containers. 
 
 To obtain the necessary Docker images locally use (this needs to be executed only once):
-
+```
 ./services create
-
+```
 To initialise and startup the Fiware Orion Context Broker containers use:
-
+```
 ./services start
-
+```
 You can test if the Orion Context Broker is running with:
-
+```
 curl localhost:1026/version
-
+```
 If the installation went well you'll get some Orion version information
 Also Cratedb, Quantumleap and Grafana should be running by now. 
 
 
-### RoseAP
+### RoseAP Configuration
 
 - Configure the configuration file of the roseap (change the ip adres to  ???? )
 
-Open the 
+Copy the RoseAPSettings.xml file to the folder "C:\Optidrive\HMISETTINGS\P0296_ROSE-AP\" and edit the file:
 
-- Launch the RoseAP, Launch the Robotsimulator
+ContextBrokerUrl: replace the IP address and port to the location of your Context Broker running in Docker, for example http://192.168.16.40:1026/
+
+LocalAddress: Set it to the IP address of the current PC.
+
+RemoteAddress: Set it to the IP address of the current PC for the robot simulator, or use the IP address of your Kuka Robot.
 
 
 ### Test with the limited robot simulator (live test)
 
 - Play with the data and  look at the behaviour of the dashboard.   By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
+
+- Launch the RoseAP, Launch the Robotsimulator
 
 
 ### Old
@@ -121,9 +126,10 @@ In the grafana dashboard you can find back the values you have put in the OCB.
 ###  Stop the Orion Context Broker
 
 To stop the containers (data will be preserved) use :
-
+```
 ./services stop
-
+```
 To clean up all data and images use (note that this will also remove your Grafana configuration) :
-
+```
 docker-compose --log-level ERROR -p fiware down -v --remove-orphans
+```
