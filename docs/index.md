@@ -4,7 +4,7 @@
 
 
 
-[Getting started ](gettingstarted.md)
+[Getting started ](./gettingstarted.md)
 
 
 
