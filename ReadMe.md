@@ -112,15 +112,15 @@ Information about how to use the the connectivity kit can be found in the [User 
 
 ## API
 
-More information about  can be found in [API documentation](docs/api.md)
+More information about  the internal structure  (available functions and use data model)of the RoseAp can be found in [API documentation](docs/api.md)
 
 
 
 ## Testing
 
-A complete Tutorial is worked out for two robots from a stone processing company.
+When users download the API it is obvious that they do not have a virtual robot available to test with. This makes it impossible to create a use case that allows the user to see and examinate in detail the behaviour of the API. To overcome this we developped a limited robotsimulator.
 
-
+##### Upfront testing with limited functionality
 
 To allow people to test upfront an implementation of the ROSE-AP, we made a container-based (docker) implementation of the ROSE-AP as binaries that may be used for testing purposes. For this purpose a predefined set of robot-data is extracted from the robot and piped to the context broker.
 
@@ -134,7 +134,7 @@ Following documents will guide you through a quick test setup of the demonstrato
 
 By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
 
-
+##### Atomic tests
 
  A set of atomic tests will be defined, each one in charge of showcasing one workflow from the following types:
 
@@ -142,11 +142,11 @@ By changing the values in the Robot Simulator, you can see the changing values i
 
 \2.   (Robot as a Context Data Consumer) : Endpoint -> Context Broker -> ROSE-AP North Port -> ROSE-AP south Port -> Kuka Connect Feature
 
- 
+#####  Tutorial
 
-When user download the API it is obvious that they do not have a virtual robot available to test with. This makes it impossible to create a use case that allows the user to see and examinate in detail the behaviour of the API. 
+A complete Tutorial is worked out for a robot from a stone processing company.
 
-To tackle this shortcoming we will work out two use cases in detail (out of our own applications from the past years) and document this in detail.  
+  
 
 ## License
 
