@@ -34,9 +34,6 @@ Note that the CII Best Practices questionaire will request evidence of tooling u
 
 ```
 
-```text
-One or two sentence preamble describing the element
-```
 
 This is an “Open Source” component which has a generic basis. A predefined set of robot-data is extracted from the robot 
 and piped to a context broker. If other information needs to be available, you can follow a tutorial to extend the “open source” 
