@@ -38,6 +38,10 @@ Note that the CII Best Practices questionaire will request evidence of tooling u
 One or two sentence preamble describing the element
 ```
 
+This is an “Open Source” component which has a generic basis. A predefined set of robot-data is extracted from the robot 
+and piped to a context broker. If other information needs to be available, you can follow a tutorial to extend the “open source” 
+code with these extra features
+
 This project is part of [DIH^2](http://www.dih-squared.eu/). For more information check the RAMP Catalogue entry for the
 [components](https://github.com/xxx).
 
