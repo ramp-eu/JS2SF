@@ -5,10 +5,10 @@
 
 
 
-[![License: MIT](https://img.shields.io/github/license/ramp-eu/TTE.project1.svg)](https://opensource.org/licenses/MIT)
-[![Docker badge](https://img.shields.io/docker/pulls/ramp-eu/TTE.project1.svg)](https://hub.docker.com/r/<org>/<repo>/)
+[![License: MIT](https://img.shields.io/github/license/ramp-eu/JS2SF.svg)](https://opensource.org/licenses/MIT)
+[![Docker badge](https://img.shields.io/docker/pulls/ramp-eu/JS2SF.svg)](https://hub.docker.com/r/<org>/<repo>/)
 <br/>
-[![Documentation Status](https://readthedocs.org/projects/tte-project1/badge/?version=latest)](https://tte-project1.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/js2sf/badge/?version=latest)](https://js2sf.readthedocs.io/en/latest/?badge=latest)
 [![Build badge](https://img.shields.io/travis/ramp-eu/TTE.project1.svg)](https://travis-ci.org/ramp-eu/TTE.project1/)
 [![Coverage Status](https://coveralls.io/repos/github/ramp-eu/TTE.project1/badge.svg?branch=master)](https://coveralls.io/github/ramp-eu/TTE.project1?branch=master)
 [![Codacy grade](https://img.shields.io/codacy/grade/99310c5c4332439197633912a99d2e3c)](https://app.codacy.com/manual/jason-fox/TTE.project1)
@@ -126,11 +126,11 @@ To allow people to test upfront an implementation of the ROSE-AP, we made a cont
 
 Following documents will guide you through a quick test setup of the demonstrator :
 
-​	Install the OCB and its preconfigured environment using Docker (including Grafana and the dashboards)
+-	Install the OCB and its preconfigured environment using Docker (including Grafana and the dashboards)
 
-​	Run the limited Robot Simulator
+-	Run the limited Robot Simulator
 
-​	Run the Rose AP
+-	Run the Rose AP
 
 By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
 
@@ -138,9 +138,8 @@ By changing the values in the Robot Simulator, you can see the changing values i
 
  A set of atomic tests will be defined, each one in charge of showcasing one workflow from the following types:
 
-\1.   (Robot as a Context Data Provider Provider)  : Kuka Connect Feature -> ROSE-AP South Port -> ROSE-AP North Port -> Context Broker -> Endpoint 
-
-\2.   (Robot as a Context Data Consumer) : Endpoint -> Context Broker -> ROSE-AP North Port -> ROSE-AP south Port -> Kuka Connect Feature
+1.   (Robot as a Context Data Provider Provider)  : Kuka Connect Feature -> ROSE-AP South Port -> ROSE-AP North Port -> Context Broker -> Endpoint 
+2.   (Robot as a Context Data Consumer) : Endpoint -> Context Broker -> ROSE-AP North Port -> ROSE-AP south Port -> Kuka Connect Feature
 
 #####  Tutorial
 
