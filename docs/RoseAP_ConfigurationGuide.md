@@ -1,4 +1,4 @@
-## Configuration of the robot input and outputs 
+## Configuration file of the Connectivity RoseAP 
 
 ​		 (RoseAP.xml)
 
