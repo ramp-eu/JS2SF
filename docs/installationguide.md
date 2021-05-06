@@ -15,7 +15,7 @@
 
 ##### 	Installation of the RoseAP
 
-- [Configuring the ROSE-AP](getting-started)
+- [Configuring the ROSE-AP](getting-started.md)
 
   
 
