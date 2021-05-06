@@ -1,4 +1,4 @@
-# GETTING STARTED
+# Quick Start Guide
 
 [Back](README.md)
 
@@ -6,105 +6,180 @@ This page is a guide to test out the component in a quick way. It uses a preconf
 
 
 
-Use a predefined set of i/o, use a config.dat file which is preconfigured for this.
-
-
-
-
-
 In order to run the preconfigured test with the robotsimulator, you need to follow the following steps :
 
-## Installation
+
+
+## Installation in Windows
 
 
 
-We have to install following softwares to get the demo/test environment  running :
+First install following softwares to get the demo/test environment  running :
 
-Install cygwin tools on windows from https://www.cygwin.com/, accept all default suggestions during installation.
+- Download cygwin tools on windows from https://www.cygwin.com/.
 
-After installation of Cygwin, add the dos2unix command to cygwin by executing in command prompt with access to the cygwin installer:
+  Safe the installation file in a directory on your pc . 
 
-setup-x86_64.exe -q -P dos2unix
+  Install cygwin tools on windows from https://www.cygwin.com/, accept all default suggestions during installation
 
-Install Docker Desktop on Windows from https://docs.docker.com/docker-for-windows/install/, choose a Hyper-V backend.
+  After installation of Cygwin, add the dos2unix command to cygwin :
 
-### OCBServer using docker-compose.yml
+  - ​	Open a cmd window
+  - ​	Browse to the directory where he cygwin  installer is located
+  - ​    Execute following command :  setup-x86_64.exe -q -P dos2unix
 
-Start a cygwin terminal and go to the folder containing the docker-compose.yml file, for example:
-```
-cd /cygdrive/c/Fiware/RoseAP/
-```
-Make sure the script files have Linux line endings by executing :
-```
-dos2unix DataGeneratorRoseAP
-dos2unix services
-```
-To get the Orion Context Broker running a service script is provided to easily create, start and stop the containers. 
+- Install Docker Desktop on Windows from https://docs.docker.com/docker-for-windows/install/, choose a Hyper-V backend.
 
-To obtain the necessary Docker images locally use (this needs to be executed only once):
+- Create a directory c:/KukaConnectivityKit and  copy the project files from the github repository to this location.
+
+
+
+### Start the Orion Context Broker using dockercompose.yml
+
+
+
+- Start a cygwin terminal and go to the folder containing the docker-compose.yml file, for example:
 ```
-./services create
+  cd /cygdrive/c/KukaConnectivityKit/docker
 ```
-To initialise and startup the Fiware Orion Context Broker containers use:
-```
-./services start
-```
-You can test if the Orion Context Broker is running with:
-```
-curl localhost:1026/version
-```
+  Make sure the script files have Linux line endings by executing :
+  ```
+  dos2unix DataGeneratorRoseAP
+  dos2unix services
+  ```
+  To get the Orion Context Broker running a service script is provided to easily create, start and stop the containers. 
+
+  To obtain the necessary Docker images locally use (this needs to be executed only once):
+  ```
+  ./services create
+  ```
+  To initialise and startup the Fiware Orion Context Broker containers use:
+  ```
+  ./services start
+  ```
+  You can test if the Orion Context Broker is running with:
+  ```
+  curl localhost:1026/version
+  ```
+
+
 If the installation went well you'll get some Orion version information
-Also Cratedb, Quantumleap and Grafana should be running by now. 
+  Also Cratedb, Quantumleap and Grafana should be running by now. 
+
+To create all entities and notifications on the Orion Context Broker a bash script file is prepared. Execute it using the following command :
+
+```
+./DataGeneratorRoseAP
+```
+
+Now the Orion Contect Broker is up and running.
 
 
-### RoseAP Configuration
 
-- Configure the configuration file of the roseap (change the ip adres to  ???? )
+### Grafana
 
-Copy the RoseAPSettings.xml file to the folder "C:\Optidrive\HMISETTINGS\P0296_ROSE-AP\" and edit the file:
 
-ContextBrokerUrl: replace the IP address and port to the location of your Context Broker running in Docker, for example http://192.168.16.40:1026/
 
-LocalAddress: Set it to the IP address of the current PC.
+- The docker-compose file has started an instance of the Grafana UI listening on port 3003, so the login page can be found at: http://localhost:3003/login. The default username is admin and the default password is admin.
 
-RemoteAddress: Set it to the IP address of the current PC for the robot simulator, or use the IP address of your Kuka Robot.
+- Following steps allow you to configure grafana and use the predefined dashboard :
+  - Connect with cratedb
+
+    - After logging in, a PostgreSQL datasource must be set up at http://localhost:3003/datasources with the following values:
+
+    - ```
+      Name CrateDB
+      Host crate-db:5432
+      Database doc      // doc is the default database for subscriptions without service-path
+      User crate
+      SSL Mode disable
+      ```
+
+  ![image-20210506114035259](images/image-20210506114035259.png)
+
+  
+
+  - Import the dashboard (C:\KukaConnectivityKit\docker\robot.json) into the grafana environment .
+
+    - On the left side of the screen select the Dashboards -> Manage option
+
+    ![image-20210506114558605](images/image-20210506114558605.png)
+
+    
+
+    - Look for the import button and browse to the robot.json file
+    - ![image-20210506114915276](images/image-20210506114915276.png)
+    - Select the robot dashboard. Now tselect the correct serial number of the robot and you will see the actual state of the robot values.
+
+    
+
+  
+
+  
+
+### RoseAP
+
+
+
+- The RoseAP is running in the windows environment so edit the configuration file of the RoseAP (RoseAPSettings.xml) using notepad for example.
+  - Look up  the RoseAPSettings.xml file in the folder "C:\KukaConnectivityKit\bin\" and edit the file. Following tags have to be completed :
+    - ContextBrokerUrl : replace the IP address and port to the location of your Context Broker running in Docker, ( for example http://192.168.16.40:1026/)
+    - LocalAddress: Set it to the IP address of the current PC.
+    - RemoteAddress: Set it to the IP address of the current PC for the robot simulator, or use the IP address of your Kuka Robot.
+
+```
+<?xml version="1.0"?>
+<RoseAPSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ContextBrokerUrl>http://192.168.16.40:1026/</ContextBrokerUrl>
+  <TimerTickInterval>3000</TimerTickInterval>
+  <LocalAddress>200.0.0.116</LocalAddress>
+  <RemoteAddress>200.0.0.100</RemoteAddress>
+  <TCP_Used>true</TCP_Used>
+  <TCP_LocalPort>9901</TCP_LocalPort>
+  <TCP_RemotePort>9903</TCP_RemotePort>
+  <UDP_Used>true</UDP_Used>
+  <UDP_LocalPort>9902</UDP_LocalPort>
+  <UDP_RemotePort>9904</UDP_RemotePort>
+  <NetworkTimeout>2000</NetworkTimeout>
+  <Enabled>true</Enabled>
+  <ConfigDatPath>C:\Optidrive\HMISETTINGS\P0296_ROSE-AP\$config.dat</ConfigDatPath>
+</RoseAPSettings>
+```
+
+
+
+- In the directory (C:\KukaConnectivityKit\bin\config.dat) there is a configuration file of the robot. This file is generating the data for the inputs and the outputs of the robotsimulator. When connecting with a real robot this file needs to be replaced with the one of the real robot. 
+- First launch the Robotsimulator (C:\KukaConnectivityKit\bin\robotsimulatorui.exe)
+- Launch the RoseAP (C:\KukaConnectivityKit\bin\kukaconnectRose-ap.exe.)
+
 
 
 ### Test with the limited robot simulator (live test)
 
-- Play with the data and  look at the behaviour of the dashboard.   By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
-
-- Launch the RoseAP, Launch the Robotsimulator
-
-
-### Old
-
-For this we created an docker compose file which is taking care of all components.
-
-- Follow the installation guide to install an Orion Context Broker on your pc. Use this docker compose file.  [Install OCB]( https://hub.docker.com/r/fiware/orion/)
-
-  This will install all necessary components on your pc. The OCB is accessible 
-
-### Grafana
-
-- If you used the provided docker-compose file , Grafana will already be installed on your system in is accessible at the following adress.
-- In grafana : install the developed dashboards . The json file for this are available in the project.
-
-
-
+- Browse to the grafana dashboard using the following url (http://localhost:3003). You can see the actual values of all robot variables.
+- Play with the data in the simulator and look at the behaviour of the dashboard.   By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
+- For the predefined test we assume the serial number of the robot to be 123456. In reality it will be different of course.
 
 
 
 
 ### Test without the robot simulator
-For testing the setup there are two options:
+The test is done independently from the robotsimulator. So make sure the robotsimulator and the RoseAP are not running anymore otherwise it will possibly overwrite the changes you are trying to realise.  For testing the setup there are two options:
+
+
 
 ##### Test using example data (bash file)
 To acquire example data the bash file, DataGenerator, can be run. This will load some data into the system and can be checked in the Grafana dashboard. We provided two different bash files to show different data flows.
 
+
+
+
+
+
+
 ##### Test with c# functions
-The test is done independently from the robotsimulator.
-So for this option there are some functions (written in c sharp, but convertible to json) available for testing (here)
+
+For this option the functions (written in c sharp, but convertible to json) available for testing (here)
 
 By calling these functions you can change one or more values on the ocb and you can see the reaction of the grafana dashboard. Or you can ask the actual value of some variables on the OCB.
 
@@ -123,9 +198,14 @@ Available functions :
 In the examples above you can see the variables of the robot which are stored on the Orion Context Broker. When using the function  UpdateRobotInfo() you can update the values of the items on the OCB.
 In the grafana dashboard you can find back the values you have put in the OCB.
 
+
+
 ###  Stop the Orion Context Broker
 
+Following commands are available to stop the Context Broker. They have to be executed in the cygwin window which is used to launch the Context Broker.
+
 To stop the containers (data will be preserved) use :
+
 ```
 ./services stop
 ```
@@ -133,3 +213,4 @@ To clean up all data and images use (note that this will also remove your Grafan
 ```
 docker-compose --log-level ERROR -p fiware down -v --remove-orphans
 ```
+
