@@ -5,16 +5,15 @@
 
 
 
-[![License: MIT](https://img.shields.io/github/license/ramp-eu/JS2SF.svg)](https://opensource.org/licenses/MIT)
-[![Docker badge](https://img.shields.io/docker/pulls/ramp-eu/JS2SF.svg)](https://hub.docker.com/r/<org>/<repo>/)
+[![License: MIT](https://img.shields.io/github/license/ramp-eu/TTE.project1.svg)](https://opensource.org/licenses/MIT)
+[![Docker badge](https://img.shields.io/docker/pulls/ramp-eu/TTE.project1.svg)](https://hub.docker.com/r/<org>/<repo>/)
 <br/>
-[![Documentation Status](https://readthedocs.org/projects/js2sf/badge/?version=latest)](https://js2sf.readthedocs.io/en/latest/?badge=latest)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4816/badge)](https://bestpractices.coreinfrastructure.org/projects/4816)
-
-
+[![Documentation Status](https://readthedocs.org/projects/tte-project1/badge/?version=latest)](https://tte-project1.readthedocs.io/en/latest/?badge=latest)
 [![Build badge](https://img.shields.io/travis/ramp-eu/TTE.project1.svg)](https://travis-ci.org/ramp-eu/TTE.project1/)
 [![Coverage Status](https://coveralls.io/repos/github/ramp-eu/TTE.project1/badge.svg?branch=master)](https://coveralls.io/github/ramp-eu/TTE.project1?branch=master)
 [![Codacy grade](https://img.shields.io/codacy/grade/99310c5c4332439197633912a99d2e3c)](https://app.codacy.com/manual/jason-fox/TTE.project1)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4187/badge)](https://bestpractices.coreinfrastructure.org/projects/4187)
+
 ```text
 
 The Badges above demonstrate testing, code coverage
@@ -35,21 +34,21 @@ Note that the CII Best Practices questionaire will request evidence of tooling u
 
 ```
 
-
-This is an “Open Source” component which has a generic basis. A predefined set of robot-data is extracted from the robot 
-and piped to a context broker. If other information needs to be available, you can follow a tutorial to extend the “open source” 
-code with these extra features
+```text
+One or two sentence preamble describing the element
+```
 
 This project is part of [DIH^2](http://www.dih-squared.eu/). For more information check the RAMP Catalogue entry for the
 [components](https://github.com/xxx).
 
-| :books: [Documentation](https://js2sf.readthedocs.io/) | :whale: [Docker Hub](https://hub.docker.com/r/link-to-docker) |
+| :books: [Documentation](https://tte-project1.readthedocs.io/en/latest/) | :whale: [Docker Hub](https://hub.docker.com/r/link-to-docker) |
 | --------------------------------------------- | ------------------------------------------------------------- |
 
 
 ## Contents
 
 -   [Background](#background)
+-   [Getting Started](#Getting Started)
 -   [Install](#install)
 -   [Usage](#usage)
 -   [API](#api)
@@ -91,13 +90,13 @@ Benefits :
 
 - The tutorials and the predefined use-cases are an inspiration to start with. In case of the simple implementations, little more is needed but the solution can grow with more advanced requirements. In both cases the development time is considerable shorter by using this ROSE-AP.
 
+## Getting Started
 
+[In this section you will find a way to test the component. ](docs/getting-started.md)
 
-## Install
+## Install and configure
 
-How to install the component
-
-Information about how to install the connectivity kit can be found at the corresponding section of the
+More information about how to install the connectivity kit can be found at the corresponding section of the
 [Installation & Administration Guide](docs/installationguide.md).
 
 A `Dockerfile` is also available for your use - further information can be found [here](docker/README.md)
@@ -128,11 +127,11 @@ To allow people to test upfront an implementation of the ROSE-AP, we made a cont
 
 Following documents will guide you through a quick test setup of the demonstrator :
 
--	Install the OCB and its preconfigured environment using Docker (including Grafana and the dashboards)
+​	Install the OCB and its preconfigured environment using Docker (including Grafana and the dashboards)
 
--	Run the limited Robot Simulator
+​	Run the limited Robot Simulator
 
--	Run the Rose AP
+​	Run the Rose AP
 
 By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
 
@@ -140,8 +139,9 @@ By changing the values in the Robot Simulator, you can see the changing values i
 
  A set of atomic tests will be defined, each one in charge of showcasing one workflow from the following types:
 
-1.   (Robot as a Context Data Provider Provider)  : Kuka Connect Feature -> ROSE-AP South Port -> ROSE-AP North Port -> Context Broker -> Endpoint 
-2.   (Robot as a Context Data Consumer) : Endpoint -> Context Broker -> ROSE-AP North Port -> ROSE-AP south Port -> Kuka Connect Feature
+\1.   (Robot as a Context Data Provider Provider)  : Kuka Connect Feature -> ROSE-AP South Port -> ROSE-AP North Port -> Context Broker -> Endpoint 
+
+\2.   (Robot as a Context Data Consumer) : Endpoint -> Context Broker -> ROSE-AP North Port -> ROSE-AP south Port -> Kuka Connect Feature
 
 #####  Tutorial
 
