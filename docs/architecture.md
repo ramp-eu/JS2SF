@@ -19,3 +19,8 @@ Configuration of the datamodel and subscriptions are explained in the docker com
 
 All data models we use to communicate with the OCB we try to realise following the NGSI. More info on the used data model can be found at https://github.com/smart-data-models/incubated/tree/master/DIH2/JS2SF
 
+
+
+
+
+![image-20210506130552359](images\image-20210506130552359.png)
