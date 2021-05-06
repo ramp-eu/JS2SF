@@ -15,12 +15,13 @@
 
 ##### 	Installation of the RoseAP
 
-- [Configuring the ROSE-AP](.\RoseAP_ConfigurationGuide)
-- Running the ROSE-AP
+- [Configuring the ROSE-AP](.\gettings-started#RoseAP)
+
+  
 
 ##### Installing/Configuring the OrionContextBroker
 
-- Docker Compose file
+- [Installing the Orion Context Broker](.\gettings-started#OCBRoseAP)
   - [How To Use It]
   - installing OCB, Quantumleap ....
   - Make it run
