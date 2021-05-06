@@ -23,4 +23,4 @@ All data models we use to communicate with the OCB we try to realise following t
 
 
 
-![image-20210506130552359](images\image-20210506130552359.png)
+![image-20210506130552359](images/image-20210506130552359.png)
