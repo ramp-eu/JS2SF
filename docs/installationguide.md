@@ -19,9 +19,11 @@
 
   
 
-##### Installing/Configuring the OrionContextBroker
+##### Installing/Configuring the OrionContextBroker in Windows environment
 
-- [Installing the Orion Context Broker](getting-started.md#Installation)
+- [Installing the Orion Context Broker](getting-started.md#installation-in-windows)
+
+- [Starting the Orion Context Broker](getting-started.md#start-the-orion-context-broker-using-dockercompose.yml)
 
   You can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md). Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
 
