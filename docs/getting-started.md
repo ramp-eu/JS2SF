@@ -34,7 +34,7 @@ First install following softwares to get the demo/test environment  running :
 
 
 
-### Start the Orion Context Broker using dockercompose.yml
+### Start the Orion Context Broker
 
 
 
