@@ -21,17 +21,13 @@
 
 ##### Installing/Configuring the OrionContextBroker
 
-- [Installing the Orion Context Broker](.\gettings-started#OCBRoseAP)
-  - [How To Use It]
-  - installing OCB, Quantumleap ....
-  - Make it run
+- [Installing the Orion Context Broker](getting-started.md#OCBRoseAP)
 
-  Use the  :  you can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md). Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
-  
+  You can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md). Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
 
 ##### 	Installation/Configuration of Grafana
 
-
+- [Configuring Grafana](getting-started.md#Grafana)
 
 
 
