@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<RoseAPSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ContextBrokerUrl>http://192.168.16.40:1026/</ContextBrokerUrl>
+  <TimerTickInterval>3000</TimerTickInterval>
+  <LocalAddress>200.0.0.116</LocalAddress>
+  <RemoteAddress>200.0.0.100</RemoteAddress>
+  <TCP_Used>true</TCP_Used>
+  <TCP_LocalPort>9901</TCP_LocalPort>
+  <TCP_RemotePort>9903</TCP_RemotePort>
+  <UDP_Used>true</UDP_Used>
+  <UDP_LocalPort>9902</UDP_LocalPort>
+  <UDP_RemotePort>9904</UDP_RemotePort>
+  <NetworkTimeout>2000</NetworkTimeout>
+  <Enabled>true</Enabled>
+  <ConfigDatPath>.\$config.dat</ConfigDatPath>
+</RoseAPSettings>

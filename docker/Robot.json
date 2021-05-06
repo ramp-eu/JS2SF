@@ -1,0 +1,1027 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 1,
+  "iteration": 1620300835154,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "panels": [],
+      "repeat": "RoboticCell",
+      "title": "Robot",
+      "type": "row"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "entity_id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 402
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errornumber"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errormessage"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^entity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT  (substr(entity_id,19,13)) as entity FROM \"doc\".\"etrobot\"  WHERE ($Robot in (substr(entity_id,19,13))) LIMIT 1;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Robot",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 8,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "content": "<img src=\"https://www.optidrive.be/themes/custom/optidrive/logo.svg\" style=\"width:360px;height:200px;\"/>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "displayMode": "json-view",
+            "filterable": false
+          },
+          "mappings": [],
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 6,
+        "x": 13,
+        "y": 1
+      },
+      "id": 29,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "select pp.\"inputnumber\"as \"Input\",substr(pp.\"entity_id\", 20 + char_length($Robot),24) as \"Name\", pp.\"inputvalue\" as \"Value\", aa.\"MaxTime\" as \"Timestamp\"\n  from (select \"inputnumber\", max(\"time_index\") as \"MaxTime\" from \"doc\".\"etinput\" group by \"inputnumber\") aa,  \"doc\".\"etinput\" as pp \n  WHERE pp.\"time_index\" = aa.\"MaxTime\" and pp.\"inputnumber\" = aa.\"inputnumber\" and ($Robot in (robotSerialNumber) ) order by pp.\"inputnumber\" asc;\n\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Robot_inputs",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 5,
+        "x": 19,
+        "y": 1
+      },
+      "id": 30,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "select pp.\"outputnumber\"as \"Output\",substr(pp.\"entity_id\", 21 + char_length($Robot),24) as \"Name\", pp.\"outputvalue\" as \"Value\", aa.\"MaxTime\" as \"Timestamp\"\n  from (select \"outputnumber\", max(\"time_index\") as \"MaxTime\" from \"doc\".\"etoutput\" group by \"outputnumber\") aa,  \"doc\".\"etoutput\" as pp \n  WHERE pp.\"time_index\" = aa.\"MaxTime\" and pp.\"outputnumber\" = aa.\"outputnumber\" and ($Robot in (robotSerialNumber)) order by pp.\"outputnumber\" asc;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Robot_outputs",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "noValue": "No Status",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 0,
+        "y": 4
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT status\nFROM etrobot\nWHERE ($Robot in (substr(entity_id,19,13)))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Status",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 3,
+        "y": 4
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "none"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT status,\nCASE WHEN status LIKE '#P_ACTIVE' THEN 1\n     ELSE 0\nEND AS color\nFROM etrobot\nWHERE ($Robot in (substr(entity_id,19,13)))\nORDER BY time_index DESC\nLIMIT 1;\n\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": " ",
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 11
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^robotmodel$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT \"robotmodel\"\nFROM etrobot \nWHERE ($Robot in (substr(entity_id,19,13)))\nORDER BY time_index DESC\nLIMIT 1;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Model",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 3,
+        "x": 4,
+        "y": 11
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^toolid$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT \"toolid\"\nFROM etrobot \nWHERE ($Robot in (substr(entity_id,19,13)))\nORDER BY time_index DESC\nLIMIT 1;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Tool",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 7,
+        "y": 11
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT \"angleaxis1\", \"angleaxis2\", \"angleaxis3\", \"angleaxis4\", \"angleaxis5\", \"angleaxis6\"\nFROM etrobot\nWHERE ($Robot in (substr(entity_id,19,13)))\nORDER BY time_index DESC\nLIMIT 1;\n\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Robot Axis",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "entity_id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 215
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errornumber"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errormessage"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "on"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 56
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 13
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^on$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \"on\", \"time_index\" as timestamp FROM \"doc\".\"etvacuumpump\" WHERE (substr($Robot,1,6) in (substr(entity_id,24,6))) ORDER BY timestamp DESC LIMIT 10;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Vaccuumpump",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 2,
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 4,
+        "y": 13
+      },
+      "id": 20,
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^vacuumlevel$/",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "7.2.1",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT vacuumlevel\nFROM etvacuumpump \nWHERE (substr(entity_id,24,6)) IN (substr($Robot,1,6))\nORDER BY time_index DESC\nLIMIT 1;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Vacuumlevel",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 8,
+        "y": 14
+      },
+      "id": 27,
+      "options": {
+        "content": "<img src=\"https://robohub.org/wp-content/uploads/2013/12/KUKA-Quantec-robot.jpg\" style=\"width:360px;height:280px;\"/>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "67890"
+          ],
+          "value": [
+            "67890"
+          ]
+        },
+        "datasource": "CrateDB",
+        "definition": "SELECT DISTINCT substr(entity_id,19,13) AS \"RC_ID\" FROM etrobot ORDER BY \"RC_ID\" ASC",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Robot",
+        "multi": true,
+        "name": "Robot",
+        "options": [],
+        "query": "SELECT DISTINCT substr(entity_id,19,13) AS \"RC_ID\" FROM etrobot ORDER BY \"RC_ID\" ASC",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Robot",
+  "uid": "hnEBdUBMz",
+  "version": 3
+}
