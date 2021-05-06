@@ -48,7 +48,7 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 ## Contents
 
 -   [Background](#background)
--   [Getting Started](#Getting Started)
+-   [Getting Started](#Getting)
 -   [Install](#install)
 -   [Usage](#usage)
 -   [API](#api)
