@@ -55,7 +55,7 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 -   [Testing](#testing)
 -   [License](#license)
 
-## _'Background'
+## Background
 
 This Rose-AP is an “Open Source” component which has a generic basis. A predefined set of robot-data is extracted from the robot and piped to a context broker. If other information needs to be available, you can follow a tutorial to extend the “open source” code with these extra features.
 
