@@ -15,22 +15,21 @@
 
 ##### 	Installation of the RoseAP
 
-- [Configuring the ROSE-AP](.\RoseAP_ConfigurationGuide)
-- Running the ROSE-AP
+- [Configuring the ROSE-AP](getting-started.md#RoseAP)
 
-##### Installing/Configuring the OrionContextBroker
-
-- Docker Compose file
-  - [How To Use It]
-  - installing OCB, Quantumleap ....
-  - Make it run
-
-  Use the  :  you can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md). Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
   
+
+##### Installing/Configuring the OrionContextBroker in Windows environment
+
+- [Installing the Orion Context Broker](getting-started.md#installation-in-windows)
+
+- [Starting the Orion Context Broker](getting-started.md#start-the-orion-context-broker)
+
+  You can find more details in the document [docker_readme](https://github.com/ramp-eu/JS2SF/blob/master/docker/README.md). Here you find the explanation about setting up the OCB, cratedb and quantumleap components.
 
 ##### 	Installation/Configuration of Grafana
 
-
+- [Configuring Grafana](getting-started.md#Grafana)
 
 
 
