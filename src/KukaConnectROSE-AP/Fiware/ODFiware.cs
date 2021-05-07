@@ -61,7 +61,13 @@ namespace KukaConnectROSE_AP.Fiware
                  myRobotIO.ConnectionStatus == eRobotConnectionState.ConnectedTCP
                  )
             {
-                myRobotIO.GetVar("$KR_SERIALNO", ref serialNumber);
+                try
+                {
+                    myRobotIO.GetVar("$KR_SERIALNO", ref serialNumber);
+                } catch (Exception ex)
+                {
+                    Console.WriteLine("Problem getting correct serialNumber, check robot connection: " + ex);
+                }
             }
             if (serialNumber == "")
             {
@@ -147,33 +153,36 @@ namespace KukaConnectROSE_AP.Fiware
         #region methods
         public void Tick()
         {
-            try
+            if (serialNumber != "")
             {
-                if (pauseNumberOfTicksAfterError > 0)
+                try
                 {
-                    pauseNumberOfTicksAfterError--;
-                }
-                else
-                {
-                    if (timertickFinishedGeneral)
+                    if (pauseNumberOfTicksAfterError > 0)
                     {
-                        timertickFinishedGeneral = false;
-                        
-                        UpdateRobotInfo();
-                        
+                        pauseNumberOfTicksAfterError--;
                     }
-                    if (timertickFinishedIO && updateRobotIOThisTimertick)
+                    else
                     {
-                        timertickFinishedIO = false;
-                        UpdateRobotIO(irecords, orecords);
-                    }
-                    updateRobotIOThisTimertick = !updateRobotIOThisTimertick;  // update IO every other tick
+                        if (timertickFinishedGeneral)
+                        {
+                            timertickFinishedGeneral = false;
 
+                            UpdateRobotInfo();
+
+                        }
+                        if (timertickFinishedIO && updateRobotIOThisTimertick)
+                        {
+                            timertickFinishedIO = false;
+                            UpdateRobotIO(irecords, orecords);
+                        }
+                        updateRobotIOThisTimertick = !updateRobotIOThisTimertick;  // update IO every other tick
+
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Problem with Fiware Tick " + ex);
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Problem with Fiware Tick " + ex);
+                }
             }
         }
 
