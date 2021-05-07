@@ -117,7 +117,7 @@ Now the Orion Contect Broker is up and running.
 
   
 
-### RoseAP<a name="RoseAP"></a>
+### Kuka Connect RoseAP<a name="RoseAP"></a>
 
 
 
