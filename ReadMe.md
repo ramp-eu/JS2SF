@@ -131,7 +131,7 @@ Following documents will guide you through a quick test setup of the demonstrato
 
 ​	Run the limited Robot Simulator
 
-​	Run the Rose AP
+​	Run the Rose AP 
 
 By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
 
