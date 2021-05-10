@@ -54,6 +54,10 @@ curl -iX POST \
 
 The data model exists of entities representing the status variables of the robot. To represent the I/o of the robot the necessary entities are created at startup of the api.
 
+- Model for Robot
+
+![modelgraphRoseAP](images/modelgraphRoseAP.png)
+
 - Model definition for Robot
 
 ```
