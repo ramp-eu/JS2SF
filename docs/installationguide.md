@@ -15,7 +15,7 @@
 
 ##### 	Installation of the RoseAP
 
-- [Configuring the ROSE-AP](getting-started.md#RoseAP)
+- [Configuring the ROSE-AP](getting-started.md#roseap)
 
   
 
@@ -29,18 +29,7 @@
 
 ##### 	Installation/Configuration of Grafana
 
-- [Configuring Grafana](getting-started.md#Grafana)
+- [Configuring Grafana](getting-started.md#grafana)
 
 
 
-
-
-
-
-
-
-
-
-## OCB on the VTT server 
-
-At this moment an OCB is filled with data coming from our virtual robots. However it is not possible to generate simulation data for the robot without having the virtual (or the real) robot up and running. 
