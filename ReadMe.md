@@ -48,14 +48,14 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 ## Contents
 
 -   [Background](#background)
--   [Getting Started](#getting-started)
+-   [Getting Started](#gettingstarted)
 -   [Install](#install)
 -   [Usage](#usage)
 -   [API](#api)
 -   [Testing](#testing)
 -   [License](#license)
 
-## Background
+## Background<a name="background"></a>
 
 This Rose-AP is an “Open Source” component which has a generic basis. A predefined set of robot-data is extracted from the robot and piped to a context broker. If other information needs to be available, you can follow a tutorial to extend the “open source” code with these extra features.
 
@@ -90,11 +90,11 @@ Benefits :
 
 - The tutorials and the predefined use-cases are an inspiration to start with. In case of the simple implementations, little more is needed but the solution can grow with more advanced requirements. In both cases the development time is considerable shorter by using this ROSE-AP.
 
-## Getting Started
+## Getting Started<a name="gettingstarted"></a>
 
 [In this section you will find a way to test the component. ](docs/getting-started.md)
 
-## Install and configure
+## Install and configure<a name="install"></a>
 
 More information about how to install the connectivity kit can be found at the corresponding section of the
 [Installation & Administration Guide](docs/installationguide.md).
@@ -103,7 +103,7 @@ A `Dockerfile` is also available for your use - further information can be found
 
 
 
-## Usage
+## Usage<a name="usage"></a>
 
 
 
@@ -111,13 +111,13 @@ Information about how to use the the connectivity kit can be found in the [User 
 
 
 
-## API
+## API<a name="api"></a>
 
 More information about  the internal structure  (available functions and use data model)of the RoseAp can be found in [API documentation](docs/api.md)
 
 
 
-## Testing
+## Testing<a name="testing"></a>
 
 When users download the API it is obvious that they do not have a virtual robot available to test with. This makes it impossible to create a use case that allows the user to see and examinate in detail the behaviour of the API. To overcome this we developped a limited robotsimulator.
 
@@ -149,6 +149,6 @@ A complete Tutorial is worked out for a robot from a stone processing company.
 
   
 
-## License
+## License<a name="license"></a>
 
 [MIT](LICENSE) © <TTE>
