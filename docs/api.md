@@ -18,7 +18,11 @@ curl -iX GET --url 'http://localhost:1026/v2/entities?type=Robot&q=serialNumber=
 ```
 - Show Robot proState0 attribute value:
 ```
-curl -X GET --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Robot:123456/attrs/proState0/value'
+vmuser@js2sf:~$ curl -X GET --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Robot:123456/attrs/proState0/value'
+```
+result:
+```
+"#P_ACTIVE"
 ```
 - List all Inputs for robot with serial number 123456
 ```
