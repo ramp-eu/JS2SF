@@ -1,6 +1,6 @@
 # API
 
-## Foreseen functions available in c#
+## Foreseen functions available in c#<a name="c#functions"></a>
 
 Hereby a short description of the functions available for every robot. 
 #### Functions in ODfiware.cs
@@ -10,7 +10,7 @@ Hereby a short description of the functions available for every robot.
 - public async void AddRobotIO(List<RobotInput> i, List<RobotOutput> o) : Create the Inputs and outputs on the context broker.
 - public async void UpdateRobotIO(List<RobotInput> i, List<RobotOutput> o) : Update the Inputs and outputs on the context broker.
 
-## Available Curl commands
+## Available Curl commands <a name="curlcommands"></a>
 
 - Show Robot info for robot  with serial number 123456:
 ```
@@ -54,7 +54,7 @@ curl -iX POST \
 }'
 ```
 
-## Used data model
+## Used data model<a name="datamodel"></a>
 
 The data model exists of entities representing the status variables of the robot. To represent the I/o of the robot the necessary entities are created at startup of the api.
 
