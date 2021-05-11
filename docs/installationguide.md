@@ -1,6 +1,6 @@
 # Installation guidelines
 
-[Back](READ.md)
+[Back](../ReadMe.md#installation)
 
 ##### 	Installation of Kuka Connect and robot I/O
 
