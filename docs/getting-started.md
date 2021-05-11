@@ -160,7 +160,10 @@ Now the Orion Contect Broker is up and running.
 
 - Browse to the grafana dashboard using the following url (http://localhost:3003). You can see the actual values of all robot variables.
 - Play with the data in the simulator and look at the behaviour of the dashboard.   By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
-- For the predefined test we assume the serial number of the robot to be 123456. In reality it will be different of course.
+ 
+ ![RobotSimulator](images/RobotSimulator.PNG)
+
+-  For the predefined test we assume the serial number of the robot to be 67890 reality it will be different of course.
 
 
 
