@@ -20,7 +20,7 @@ curl -iX GET --url 'http://localhost:1026/v2/entities?type=Robot&q=serialNumber=
 ```
 - Show Robot proState0 attribute value:
 ```
-vmuser@js2sf:~$ curl -X GET --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Robot:123456/attrs/proState0/value'
+curl -X GET --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Robot:123456/attrs/proState0/value'
 ```
 result:
 ```
@@ -34,6 +34,16 @@ curl -iX GET --url 'http://localhost:1026/v2/entities?type=Input&q=robotSerialNu
 ```
 curl -iX GET --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Input:123456-CILDET_7'
 ```
+result:
+```
+{"id":"urn:ngsi-ld:Input:123456-CILDET_7",
+"type":"Input",
+"dateCreated":{"type":"DateTime","value":"2021-05-07T10:56:16.00Z","metadata":{}},
+"inputNumber":{"type":"Number","value":99,"metadata":{}},
+"inputValue":{"type":"Boolean","value":false,"metadata":{}},
+"robotSerialNumber":{"type":"Number","value":123456,"metadata":{}}}
+```
+
 - Delete Input 'CILDET_7' for robot with serial number 123456:
 ```
 curl -iX DELETE --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Input:123456-CILDET_7'
@@ -46,6 +56,16 @@ curl -iX GET --url 'http://localhost:1026/v2/entities?type=Output&q=robotSerialN
 ```
 curl -iX GET --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Output:123456-BLOWOFF'
 ```
+result:
+```
+{"id":"urn:ngsi-ld:Output:123456-BLOWOFF",
+"type":"Output",
+"dateCreated":{"type":"DateTime","value":"2021-05-07T10:56:17.00Z","metadata":{}},
+"outputNumber":{"type":"Number","value":81,"metadata":{}},
+"outputValue":{"type":"Boolean","value":true,"metadata":{}},
+"robotSerialNumber":{"type":"Number","value":123456,"metadata":{}}}
+```
+
 - Set outputValue to true for  Output 'BLOWOFF' for robot with serial number 123456:
 ```
 curl -iX POST \
@@ -133,6 +153,10 @@ curl -iX POST \
 }'
 ```
 
+- Model for Input
+
+![Input](images/Input.PNG)
+
 - Model definition of input for robot based on InputNames and InputValues
 ```
 curl -iX POST \
@@ -160,6 +184,10 @@ curl -iX POST \
   }
 }'
 ```
+- Model for Output
+
+![Output](images/Output.PNG)
+
 - Model definition of output for robot  based on OutputNames and OutputValues
 ```
 curl -iX POST \
