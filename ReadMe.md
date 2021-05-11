@@ -131,7 +131,7 @@ By changing the values in the Robot Simulator, you can see the changing values i
 
 ##### Atomic tests
 
-To allow the user to experiment with the data and the RoseAP a document is created with a set of simple test commands. As wel c# commands and Curl commands are foreseen. You can find them [here]() .
+To allow the user to experiment with the data and the RoseAP a document is created with a set of simple test commands. As wel c# commands and Curl commands are foreseen. You can find them [here](docs/api.md) .
 
 
   
