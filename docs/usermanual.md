@@ -1,6 +1,6 @@
 # User Guide Lines
 
-[Back](../ReadMe.md#user)
+[Back](../ReadMe.md#usage)
 
 ### At start up
 
