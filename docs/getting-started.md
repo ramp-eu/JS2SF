@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-[Back](../ReadMe.md)
+[Back](../ReadMe.md#gettingstarted)
 
 This page is a guide to test out the component in a quick way. It uses a preconfigured docker-compose file, a grafana dashboard and a preconfigured robotsimulator combined with the RoseAP.
 
