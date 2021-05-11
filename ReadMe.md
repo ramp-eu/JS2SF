@@ -41,21 +41,21 @@ One or two sentence preamble describing the element
 This project is part of [DIH^2](http://www.dih-squared.eu/). For more information check the RAMP Catalogue entry for the
 [components](https://github.com/xxx).
 
-| :books: [Documentation](https://tte-project1.readthedocs.io/en/latest/) | :whale: [Docker Hub](https://hub.docker.com/r/link-to-docker) |
+| :books: [Documentation](https://js2sf.readthedocs.io/en/latest/) | :whale: [Docker Hub](https://hub.docker.com/r/link-to-docker) |
 | --------------------------------------------- | ------------------------------------------------------------- |
 
 
 ## Contents
 
 -   [Background](#background)
--   [Getting Started](#getting-started)
+-   [Getting Started](#gettingstarted)
 -   [Install](#install)
 -   [Usage](#usage)
 -   [API](#api)
 -   [Testing](#testing)
 -   [License](#license)
 
-## Background
+## Background<a name="background"></a>
 
 This Rose-AP is an “Open Source” component which has a generic basis. A predefined set of robot-data is extracted from the robot and piped to a context broker. If other information needs to be available, you can follow a tutorial to extend the “open source” code with these extra features.
 
@@ -90,11 +90,11 @@ Benefits :
 
 - The tutorials and the predefined use-cases are an inspiration to start with. In case of the simple implementations, little more is needed but the solution can grow with more advanced requirements. In both cases the development time is considerable shorter by using this ROSE-AP.
 
-## Getting Started
+## Getting Started<a name="gettingstarted"></a>
 
 [In this section you will find a way to test the component. ](docs/getting-started.md)
 
-## Install and configure
+## Install and configure<a name="install"></a>
 
 More information about how to install the connectivity kit can be found at the corresponding section of the
 [Installation & Administration Guide](docs/installationguide.md).
@@ -103,7 +103,7 @@ A `Dockerfile` is also available for your use - further information can be found
 
 
 
-## Usage
+## Usage<a name="usage"></a>
 
 
 
@@ -111,13 +111,13 @@ Information about how to use the the connectivity kit can be found in the [User 
 
 
 
-## API
+## API<a name="api"></a>
 
 More information about  the internal structure  (available functions and use data model)of the RoseAp can be found in [API documentation](docs/api.md)
 
 
 
-## Testing
+## Testing<a name="testing"></a>
 
 When users download the API it is obvious that they do not have a virtual robot available to test with. This makes it impossible to create a use case that allows the user to see and examinate in detail the behaviour of the API. To overcome this we developped a limited robotsimulator.
 
@@ -125,30 +125,17 @@ When users download the API it is obvious that they do not have a virtual robot 
 
 To allow people to test upfront an implementation of the ROSE-AP, we made a container-based (docker) implementation of the ROSE-AP as binaries that may be used for testing purposes. For this purpose a predefined set of robot-data is extracted from the robot and piped to the context broker.
 
-Following documents will guide you through a quick test setup of the demonstrator :
-
-​	Install the OCB and its preconfigured environment using Docker (including Grafana and the dashboards)
-
-​	Run the limited Robot Simulator
-
-​	Run the Rose AP
+[Following documents](docs/getting-started.md) will guide you through a quick test setup of the demonstrator.
 
 By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
 
 ##### Atomic tests
 
- A set of atomic tests will be defined, each one in charge of showcasing one workflow from the following types:
+To allow the user to experiment with the data and the RoseAP a document is created with a set of simple test commands. As wel c# commands and Curl commands are foreseen. You can find them [here](docs/api.md) .
 
-\1.   (Robot as a Context Data Provider Provider)  : Kuka Connect Feature -> ROSE-AP South Port -> ROSE-AP North Port -> Context Broker -> Endpoint 
-
-\2.   (Robot as a Context Data Consumer) : Endpoint -> Context Broker -> ROSE-AP North Port -> ROSE-AP south Port -> Kuka Connect Feature
-
-#####  Tutorial
-
-A complete Tutorial is worked out for a robot from a stone processing company.
 
   
 
-## License
+## License<a name="license"></a>
 
 [MIT](LICENSE) © <TTE>

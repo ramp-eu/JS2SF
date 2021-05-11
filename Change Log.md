@@ -6,14 +6,14 @@ This Change Log format is suggested by https://github.com/olivierlacan/keep-a-ch
 
 ## 
 
-## 0.1 - 2021-04-24
+## 0.1 - 2021-05-11
 
-- Deploy base project
+- Deploy base project V1.0.0
 - 
 
 ## 
 
-## 0.2 - 2012-02-22
+## 0.2 - 2012-05-22
 
-- puntje
+- item
 - 

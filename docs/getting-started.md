@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-[Back](README.md)
+[Back](../ReadMe.md#gettingstarted)
 
 This page is a guide to test out the component in a quick way. It uses a preconfigured docker-compose file, a grafana dashboard and a preconfigured robotsimulator combined with the RoseAP.
 
@@ -10,7 +10,7 @@ In order to run the preconfigured test with the robotsimulator, you need to foll
 
 
 
-## Installation in Windows
+### Installation in Windows<a name="installation"></a>
 
 
 
@@ -20,7 +20,7 @@ First install following softwares to get the demo/test environment  running :
 
   Safe the installation file in a directory on your pc . 
 
-  Install cygwin tools on windows from https://www.cygwin.com/, accept all default suggestions during installation
+  Install cygwin tools on windows, accept all default suggestions during installation
 
   After installation of Cygwin, add the dos2unix command to cygwin :
 
@@ -34,7 +34,7 @@ First install following softwares to get the demo/test environment  running :
 
 
 
-### Start the Orion Context Broker
+### Start the Orion Context Broker<a name="starttheorioncontextbroker"></a>
 
 
 
@@ -76,7 +76,7 @@ Now the Orion Contect Broker is up and running.
 
 
 
-### Grafana<a name="Grafana"></a>
+### Grafana<a name="grafana"></a>
 
 
 
@@ -117,7 +117,7 @@ Now the Orion Contect Broker is up and running.
 
   
 
-### Kuka Connect RoseAP<a name="RoseAP"></a>
+### RoseAP<a name="roseap"></a>
 
 
 
@@ -149,8 +149,10 @@ Now the Orion Contect Broker is up and running.
 
 
 - In the directory (C:\KukaConnectivityKit\bin\config.dat) there is a configuration file of the robot. This file is generating the data for the inputs and the outputs of the robotsimulator. When connecting with a real robot this file needs to be replaced with the one of the real robot. 
-- First launch the Robotsimulator (C:\KukaConnectivityKit\bin\robotsimulatorui.exe)
+- First launch the Robotsimulator (C:\KukaConnectivityKit\bin\robotsimulatorui.exe).  When a real robot has to be connected this software does need to run.  In that case first install and configure the KukaConnect software as described in [KukaConnect Installation Guide](.\KukaConnect_InstallationGuide.md), 	[Configuration of Kuka Connect](.\KukaConnect_ConfigurationGuide.md), and [Configuration of the Inputs and outputs of the robot](.\KukaIO_ConfigurationGuide.md)
 - Launch the RoseAP (C:\KukaConnectivityKit\bin\kukaconnectRose-ap.exe.)
+
+
 
 
 
@@ -158,7 +160,10 @@ Now the Orion Contect Broker is up and running.
 
 - Browse to the grafana dashboard using the following url (http://localhost:3003). You can see the actual values of all robot variables.
 - Play with the data in the simulator and look at the behaviour of the dashboard.   By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
-- For the predefined test we assume the serial number of the robot to be 123456. In reality it will be different of course.
+ 
+ ![RobotSimulator](images/RobotSimulator.PNG)
+
+-  For the predefined test we assume the serial number of the robot to be 67890 reality it will be different of course.
 
 
 

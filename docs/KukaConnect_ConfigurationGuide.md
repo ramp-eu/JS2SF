@@ -78,11 +78,44 @@ Contents of the file :
 >
 > [ReadableData]   ;The KRL Variables that may be read through the socket interface   
 >
->  1=$OV_PRO   
->
->  2=$PRO_STATE1   
->
->  3=$TOOL  
+>  1=$PRO_STATE0   
+>  
+>  2=$PRO_STATE1 
+>    
+>  3=$Drives_on
+>  
+>  4=$Drives_off
+>  
+>  5=$Peri_Rdy
+>  
+>  6=$ALARM_STOP
+>  
+>  7=$MODE_OP
+>  
+>  8=$POS_ACT
+>  
+>  9=$TOOL
+>  
+>  10=$BASE
+>  
+>  11=$axis_act
+>  
+>  12=$TORQUE_AXIS_ACT[]
+>  
+>  13=$TORQUE_AXIS_MAX[]
+>  
+>  14=$VEL_ACT
+>  
+>  15=$VEL_AXIS_ACT[]
+>  
+>  16=$VEL_AXIS_MA[]
+>  
+>  17=$IN[]
+>  
+>  18=$OUT[]
+>  
+>  19=$OV_PRO
+>  
 >
 >  [WritableData]   ;The KRL Variables that may be written through the socket  interface   
 >

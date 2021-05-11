@@ -77,4 +77,4 @@ All releases are tagged semver style as `vx.y.z`. The maintainer doing the relea
 
 ## Licensing
 
-All contributions are made under the same GIT license as the rest of the project.
+All contributions are made under the same MIT license as the rest of the project.

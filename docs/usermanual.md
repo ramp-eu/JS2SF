@@ -1,18 +1,14 @@
 # User Guide Lines
 
-[Back](README.md)
+[Back](../ReadMe.md#usage)
 
 ### At start up
 
 When starting up the API, you will see the following screen :
 
+![KukaConnectRoseAPConnected](images/KukaConnectRoseAPConnected.PNG)
 
-
-It is displaying the connection information with the robot and with the OCB (most important settings). 
-
-
-
-If everything is green, the connections are ok and the transfer of data is going on.
+If you see "Starting Fiware" and "Connected" followed by timepstamps, the connections are ok and the transfer of data is going on.
 
 The connection between robot and the API is a peer to peer connection. So for every new robot you want to use this api for , a new instance of the api has to be started using its own settings and ip address.
 
@@ -22,7 +18,6 @@ At start up the API compares the actual List with inputs and outputs in the robo
 
 
 
-In this video link you can find a demonstration about this.
 
 ### Transferred data
 
@@ -53,8 +48,6 @@ You have to click once on the skip button before you see the grafana interface.
 Search for the manage button on the right side and you will see a list of available dashboards. 
 
 
-
-+Video
 
 
 
