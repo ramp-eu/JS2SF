@@ -72,7 +72,8 @@ namespace KukaConnectROSE_AP.Fiware
             if (serialNumber == "")
             {
                 Console.WriteLine("Problem getting correct serialNumber, check robot connection.");
-            } else { 
+            } else {
+                Console.WriteLine("Connected");
                 ParseRobotconfig(path);
                 bool inputsOrOutputsChanged = ClearRobotIOIfInputsOrOutputsChanged();
                 if (inputsOrOutputsChanged)
@@ -391,7 +392,7 @@ namespace KukaConnectROSE_AP.Fiware
                     string toFind1 = "[";
                     string toFind2 = "]";
                     int start = parts[2].IndexOf(toFind1) + toFind1.Length;
-                    int end = parts[2].IndexOf(toFind2, start); //Start after the index of 'my' since 'is' appears twice
+                    int end = parts[2].IndexOf(toFind2, start);
                     string string2 = parts[2].Substring(start, end - start);
 
                     irecords.Add(new RobotInput(
@@ -406,7 +407,7 @@ namespace KukaConnectROSE_AP.Fiware
                     string toFind1 = "[";
                     string toFind2 = "]";
                     int start = parts[2].IndexOf(toFind1) + toFind1.Length;
-                    int end = parts[2].IndexOf(toFind2, start); //Start after the index of 'my' since 'is' appears twice
+                    int end = parts[2].IndexOf(toFind2, start);
                     string string2 = parts[2].Substring(start, end - start);
                     orecords.Add(new RobotOutput(
                         n = serialNumber + "-" + parts[1].Trim(),
