@@ -1,4 +1,4 @@
-# optidrive
+# Optidrive
 The docker-compose file is used to start up the following containers:
 
 - orion: The FIWARE Orion Context Broker which will receive requests using NGSI
