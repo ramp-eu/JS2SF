@@ -125,27 +125,14 @@ When users download the API it is obvious that they do not have a virtual robot 
 
 To allow people to test upfront an implementation of the ROSE-AP, we made a container-based (docker) implementation of the ROSE-AP as binaries that may be used for testing purposes. For this purpose a predefined set of robot-data is extracted from the robot and piped to the context broker.
 
-Following documents will guide you through a quick test setup of the demonstrator :
-
-​	Install the OCB and its preconfigured environment using Docker (including Grafana and the dashboards)
-
-​	Run the limited Robot Simulator
-
-​	Run the Rose AP 
+[Following documents](docs/getting-started.md) will guide you through a quick test setup of the demonstrator.
 
 By changing the values in the Robot Simulator, you can see the changing values in the dashboards.
 
 ##### Atomic tests
 
- A set of atomic tests will be defined, each one in charge of showcasing one workflow from the following types:
+To allow the user to experiment with the data and the RoseAP a document is created with a set of simple test commands. As wel c# commands and Curl commands are foreseen. You can find them [here]() .
 
-\1.   (Robot as a Context Data Provider Provider)  : Kuka Connect Feature -> ROSE-AP South Port -> ROSE-AP North Port -> Context Broker -> Endpoint 
-
-\2.   (Robot as a Context Data Consumer) : Endpoint -> Context Broker -> ROSE-AP North Port -> ROSE-AP south Port -> Kuka Connect Feature
-
-#####  Tutorial
-
-A complete Tutorial is worked out for a robot from a stone processing company.
 
   
 
