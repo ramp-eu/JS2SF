@@ -1,42 +1,18 @@
 ## Connectivity Kit for Kuka  Robots             ![image-20210413114418187](docs/images/image-20210413114418187.png)
 <hr />
 
-(making use of KukaConnect software option)
+(making use of the KukaConnect software option)
 
-
-
-[![License: MIT](https://img.shields.io/github/license/ramp-eu/TTE.project1.svg)](https://opensource.org/licenses/MIT)
-[![Docker badge](https://img.shields.io/docker/pulls/ramp-eu/TTE.project1.svg)](https://hub.docker.com/r/<org>/<repo>/)
+[![License: MIT](https://img.shields.io/github/license/ramp-eu/JS2SF.svg)](https://opensource.org/licenses/MIT)
 <br/>
-[![Documentation Status](https://readthedocs.org/projects/tte-project1/badge/?version=latest)](https://tte-project1.readthedocs.io/en/latest/?badge=latest)
-[![Build badge](https://img.shields.io/travis/ramp-eu/TTE.project1.svg)](https://travis-ci.org/ramp-eu/TTE.project1/)
-[![Coverage Status](https://coveralls.io/repos/github/ramp-eu/TTE.project1/badge.svg?branch=master)](https://coveralls.io/github/ramp-eu/TTE.project1?branch=master)
-[![Codacy grade](https://img.shields.io/codacy/grade/99310c5c4332439197633912a99d2e3c)](https://app.codacy.com/manual/jason-fox/TTE.project1)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4187/badge)](https://bestpractices.coreinfrastructure.org/projects/4187)
+[![Documentation Status](https://readthedocs.org/projects/js2sf/badge/?version=latest)](https://js2sf.readthedocs.io/en/latest/?badge=latest)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4816/badge)](https://bestpractices.coreinfrastructure.org/projects/4816)
 
-```text
+This software allows all owners of Kuka robots to connect to the Fiware-ecosystem and make use of all the software components available
+in RAMP (ex. Grafana). The tutorials and the predefined use-cases are an inspiration to start with. In case of the simple implementations, l
+ittle more is needed but the solution can grow with more advanced requirements. In both cases the development time is considerable 
+shorter by using this ROSE-AP.
 
-The Badges above demonstrate testing, code coverage
-and commitment to coding standards (since the code is linted on commit).
-
-The links need to be amended to point to the correct repo.
-
-Sign up for:
-
-- CI Test system - e.g. Travis
-- A Documentation website - e.g. ReadTheDocs
-- Static Code Analysis tool - e.g. Codacy
-- CII Best Practices https://bestpractices.coreinfrastructure.org
-
-Only CII Best Practices (and its badge) is mandatory. Any equivalent public automated tools for the other three may be used.
-
-Note that the CII Best Practices questionaire will request evidence of tooling used.
-
-```
-
-```text
-One or two sentence preamble describing the element
-```
 
 This project is part of [DIH^2](http://www.dih-squared.eu/). For more information check the RAMP Catalogue entry for the
 [components](https://github.com/xxx).
@@ -82,13 +58,6 @@ As an endpoint for our demonstrations and use cases we use the graphical user in
 
  ![image-20210413115152054](docs/images/image-20210413115152054.png)
 
- 
-
-Benefits :
-
-- By using this ROSE-AP, all owners of Kuka robots can connect simply to the Fiware-ecosystem and make use of all the software components available in RAMP (ex. Grafana).
-
-- The tutorials and the predefined use-cases are an inspiration to start with. In case of the simple implementations, little more is needed but the solution can grow with more advanced requirements. In both cases the development time is considerable shorter by using this ROSE-AP.
 
 ## Getting Started<a name="gettingstarted"></a>
 
