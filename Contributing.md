@@ -63,9 +63,9 @@ First time contributions from new developers are always major.
 
 - If the commit message subject doesn’t say it all, one or more paragraphs of describing text should be added to the commit message. This should explain why the change is made and what it accomplishes.
 
-- When drafting a pull request, please feel free to add commits with corrections and merge from `main` when necessary. This provides a clear time line with changes and simplifies review. Do not, in general, rebase your commits.
+- When drafting a pull request, please feel free to add commits with corrections and merge from `master` when necessary. This provides a clear time line with changes and simplifies review. Do not, in general, rebase your commits.
 
-- Pull requests are merged to `main` using squash merge. The “stream of consciousness” set of commits described in the previous point will be reduced to a single commit at merge time.
+- Pull requests are merged to `master` using squash merge. The “stream of consciousness” set of commits described in the previous point will be reduced to a single commit at merge time.
 
 ## Tests
 
@@ -79,7 +79,7 @@ If the pull request is invasive or scary looking, the full integration test suit
 ## Branches
 
 - `master` is the main branch containing good code that will end up in the next release. You should base your work on it. It won’t ever be rebased or force-pushed to.
-- `vx.y` branches exist to make patch releases on otherwise obsolete minor releases. Should only contain fixes cherry picked from `main`. Don’t base any work on them.
+- `vx.y` branches exist to make patch releases on otherwise obsolete minor releases. Should only contain fixes cherry picked from `master`. Don’t base any work on them.
 - Other branches are probably topic branches and may be subject to rebasing. Don’t base any work on them unless you specifically know otherwise.
 
 ## Tags
