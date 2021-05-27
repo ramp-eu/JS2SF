@@ -58,10 +58,8 @@ First time contributions from new developers are always major.
 Yes please, do add tests when adding features or fixing bugs. Also, when a pull request is filed a number of automatic tests are run on the code. This includes:
 
 - That the code actually builds and the test suite passes.
-- That the code is correctly formatted (`go fmt`).
-- That the commits are based on a reasonably recent `main`.
+- That the commits are based on a reasonably recent `master`.
 - That the author is listed in AUTHORS.
-- That the output from `go lint` and `go vet` is clean. (This checks for a number of potential problems the compiler doesn’t catch.)
 
 If the pull request is invasive or scary looking, the full integration test suite can be run as well.
 
