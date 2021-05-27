@@ -3,7 +3,7 @@
 
 (making use of the KukaConnect software option)
 
-[![License: MIT](https://img.shields.io/github/license/ramp-eu/JS2SF.svg)](https://opensource.org/licenses/MIT)
+[![License: Apache](https://img.shields.io/github/license/ramp-eu/JS2SF.svg)](https://www.apache.org/licenses/LICENSE-2.0.html#redistribution)
 <br/>
 [![Documentation Status](https://readthedocs.org/projects/js2sf/badge/?version=latest)](https://js2sf.readthedocs.io/en/latest/?badge=latest)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4816/badge)](https://bestpractices.coreinfrastructure.org/projects/4816)
