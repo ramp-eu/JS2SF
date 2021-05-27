@@ -73,7 +73,6 @@ Yes please, do add tests when adding features or fixing bugs. Also, when a pull 
 
 - That the code actually builds and the test suite passes.
 - That the commits are based on a reasonably recent `master`.
-- That the author is listed in AUTHORS.
 
 If the pull request is invasive or scary looking, the full integration test suite can be run as well.
 
