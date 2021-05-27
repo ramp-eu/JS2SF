@@ -1,7 +1,7 @@
-site_name: <site-name>
-site_url: https://<site-url>
-repo_url: https://github.com/<repo_url>
-site_description: RAMP Documentation
+site_name: Connectivity kir for Kuka robots
+site_url: https://github.com/ramp-eu/JS2SF
+repo_url: https://github.com/ramp-eu/JS2SF
+site_description: Rose AP Documentation and software for the connectivity kit for Kuka robotos. 
 docs_dir: docs
 site_dir: html
 edit_uri: edit/master/doc/
