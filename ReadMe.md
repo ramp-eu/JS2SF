@@ -107,4 +107,4 @@ To allow the user to experiment with the data and the RoseAP a document is creat
 
 ## License<a name="license"></a>
 
-[MIT](LICENSE) © <TTE>
+[Apache2.0](LICENSE) © 2021 Optidrive<TTE>
