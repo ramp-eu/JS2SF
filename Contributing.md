@@ -1,14 +1,27 @@
 # Contribution Guidelines
 
+## Ground rules & expectations
+
+Before we get started, here are a few things we expect from you (and that you should expect from others):
+
+*   Be kind and thoughtful in your conversations around this project. We all come from different backgrounds and
+    projects, which means we likely have different perspectives on "how open source is done." Try to listen to others
+    rather than convince them that your way is correct.
+*   Please ensure that your contribution passes all tests. If there are test failures, you will need to address them
+    before we can merge your contribution.
+*   When adding content, please consider if it is widely valuable. Please don't add references or links to things you or
+    your employer have created as others will do so if they appreciate it.
+*   When reporting a vulnerability on the software, please, put in contact with repository maintainers in order to discuss it 
+    in a private way.
+
 ## Getting Started
 
 So you want to contribute? Great! Here’s a short checklist with the most important points:
 
 - Don’t worry. You are not expected to get everything right on the first attempt, we’ll guide you through it.
-- Make sure there is an [issue](https://github.com/syncthing/syncthing/issues) that describes the change you want to do. If the thing you want to do does not have an issue yet, please file one before starting work on it.
+- Please check before starting a new issue if it does not exist or has been handeld already.
+- Make sure there is an [issue](https://github.com/syncthing/syncthing/issues) that describes the change you want to do. If the thing you want to do does not have an issue yet, please file one before starting work on it. 
 - Fork the repository and make your changes in a new branch. If you already have push access to the Syncthing repository, do *not* create a new branch there. We do all changes as pull requests from personal forks.
-
-
 
 ## Code Review
 
@@ -24,7 +37,8 @@ Commits will generally fall into one of the three categories below, with differe
 
 - Major:
 
-  A complex new feature or bugfix, a large refactoring, or a change to the underlying architecture of things. A major change must be reviewed by a member of the *maintainers* team. Tests must pass.
+  A complex new feature or bugfix, a large refactoring, or a change to the underlying architecture of things. A major change must be reviewed by a member of the *maintainers* team. Tests must pass. We recommend that you start by opening an issue first. That way, other people can weigh in on the discussion before you do any work.
+
 
 The categorization is inherently subjective; we recommend erring on the side of caution - if you are not sure whether a change is *trivial* or merely *minor*, it’s probably minor.
 
@@ -65,7 +79,7 @@ If the pull request is invasive or scary looking, the full integration test suit
 
 ## Branches
 
-- `main` is the main branch containing good code that will end up in the next release. You should base your work on it. It won’t ever be rebased or force-pushed to.
+- `master` is the main branch containing good code that will end up in the next release. You should base your work on it. It won’t ever be rebased or force-pushed to.
 - `vx.y` branches exist to make patch releases on otherwise obsolete minor releases. Should only contain fixes cherry picked from `main`. Don’t base any work on them.
 - Other branches are probably topic branches and may be subject to rebasing. Don’t base any work on them unless you specifically know otherwise.
 
@@ -75,4 +89,4 @@ All releases are tagged semver style as `vx.y.z`. The maintainer doing the relea
 
 ## Licensing
 
-All contributions are made under the same MIT license as the rest of the project.
+All contributions are made under the same APACHE license as the rest of the project.
