@@ -24,8 +24,14 @@ jobs:
     - name: Install dependencies
       run: dotnet restore src/KukaConnectROSE-AP.sln
 
+    - name: Mkdir bin\Debug
+      run: mkdir src\KukaConnectROSE-AP\bin\Debug
+      
     - name: Copy RobotConnection dll
       run: copy bin\KukaBe.RobotConnection.dll src\KukaConnectROSE-AP\bin\Debug
+      
+    - name: Copy Network dll
+      run: copy bin\KukaBe.Network.dll src\KukaConnectROSE-AP\bin\Debug\
       
     - name: Build
       run: dotnet build src/KukaConnectROSE-AP.sln
