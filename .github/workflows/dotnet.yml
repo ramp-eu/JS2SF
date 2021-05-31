@@ -23,6 +23,9 @@ jobs:
 # nuget packages
     - name: Install dependencies
       run: dotnet restore src/KukaConnectROSE-AP.sln
+
+    - name: Copy RobotConnection dll
+      run: copy bin\KukaBe.RobotConnection.dll src\KukaConnectROSE-AP\bin\Debug
       
     - name: Build
       run: dotnet build src/KukaConnectROSE-AP.sln
