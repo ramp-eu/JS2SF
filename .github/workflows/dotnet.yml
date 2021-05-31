@@ -21,7 +21,7 @@ jobs:
         dotnet-version: 5.0.x
       
     - name: Install dependencies
-      run: dotnet add package Newtonsoft.Json --version 12.0.1
+      run: dotnet restore src/KukaConnectROSE-AP.sln
       
     - name: Build
       run: dotnet build src/KukaConnectROSE-AP.sln
