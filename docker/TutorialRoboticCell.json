@@ -1,0 +1,1305 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 4,
+  "iteration": 1620042570754,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "panels": [],
+      "repeat": "RoboticCell",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "title": "RoboticCell",
+      "type": "row"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "entity_id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 402
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errornumber"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errormessage"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 11,
+        "x": 0,
+        "y": 1
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^entity$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT  (substr(entity_id,25,9)) as entity FROM \"doc\".\"etroboticcell\"  WHERE (substr(entity_id,25,8) IN ($RoboticCell)) LIMIT 1;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "RoboticCell",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 11,
+        "y": 1
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^incoming$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT  substr(refincomingpallet,13,40) as incoming\nFROM etroboticcell \nWHERE (substr(entity_id,25,8) IN ($RoboticCell))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "INCOMING PALLET",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 19,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "content": "<img src=\"https://www.optidrive.be/themes/custom/optidrive/logo.svg\" style=\"width:360px;height:200px;\"/>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Robot",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "noValue": "No Value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 0,
+        "y": 4
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^currentpiecenumber$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT currentpiecenumber\nFROM etroboticcell\nWHERE (substr(entity_id,25,6)) IN (substr($RoboticCell,0,6))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Number of pieces done",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 5,
+        "y": 4
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^totalnumberofpieces$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT totalnumberofpieces\nFROM etroboticcell\nWHERE (substr(entity_id,25,6)) IN (substr($RoboticCell,0,6))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total number of pieces",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 20,
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 11,
+        "y": 5
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^outgoing$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT  substr(refoutgoingpallet,13,20) as outgoing\nFROM etroboticcell \nWHERE (substr(entity_id,25,8) IN ($RoboticCell))\nORDER BY time_index DESC\nLIMIT 1;\n\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "OUTGOING PALLET",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 0,
+        "y": 6
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT status\nFROM etrobot\nWHERE (substr(entity_id,19,6)) IN (substr($RoboticCell,0,6))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Status",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 4,
+        "y": 6
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "none"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT status,\nCASE WHEN status LIKE '#P_ACTIVE' THEN 1\n     ELSE 0\nEND AS color\nFROM etrobot\nWHERE (substr(entity_id,19,6)) IN (substr($RoboticCell,0,6))\nORDER BY time_index DESC\nLIMIT 1;\n;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": " ",
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "max": 20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 19,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  errornumber\nFROM etroboticcell \nWHERE (substr(entity_id,25,8) IN ($RoboticCell))\nORDER BY time_index DESC\nLIMIT 1;\n\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current Errornumber",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 19,
+        "y": 12
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^errormessage$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT errormessage\nFROM etroboticcell \nWHERE (substr(entity_id,25,8) IN ($RoboticCell))\nORDER BY time_index DESC\nLIMIT 1;\n\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Current Errormessage",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 2,
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 0,
+        "y": 13
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^on$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT \"on\" FROM \"doc\".\"etvacuumpump\" WHERE (substr($RoboticCell,1,6) in (substr(entity_id,24,6))) ORDER BY time_index DESC LIMIT 10;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Vacuumpump ON/OFF",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 2,
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 3,
+        "y": 13
+      },
+      "id": 20,
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^vacuumlevel$/",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT vacuumlevel\nFROM etvacuumpump \nWHERE (substr(entity_id,24,6)) IN (substr($RoboticCell,0,6))\nORDER BY time_index DESC\nLIMIT 1;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Vacuumlevel",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(255, 255, 255)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 6,
+        "y": 13
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT \"axis1\", \"axis2\", \"axis3\", \"axis4\", \"axis5\", \"axis6\"\nFROM etrobot\nWHERE (substr(entity_id,19,6)) IN (substr($RoboticCell,0,6))\nORDER BY time_index DESC\nLIMIT 1;\n\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Robot Axis",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "entity_id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 215
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errornumber"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errormessage"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 104
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 19,
+        "y": 16
+      },
+      "id": 2,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "RoboticCell": {
+          "selected": true,
+          "text": "DuoCut",
+          "value": "DuoCut"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \"errormessage\",\"errornumber\",\"time_index\" FROM \"doc\".\"etroboticcell\" WHERE (substr(entity_id,25,8) IN ($RoboticCell)) ORDER BY time_index DESC LIMIT 10;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Error Log",
+      "type": "table"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "DuoCut"
+          ],
+          "value": [
+            "DuoCut"
+          ]
+        },
+        "datasource": "CrateDB",
+        "definition": "SELECT DISTINCT substr(entity_id,25,8) AS \"RC_ID\" FROM etroboticcell ORDER BY \"RC_ID\" ASC",
+        "hide": 0,
+        "includeAll": false,
+        "label": "RoboticCell",
+        "multi": true,
+        "name": "RoboticCell",
+        "options": [],
+        "query": "SELECT DISTINCT substr(entity_id,25,8) AS \"RC_ID\" FROM etroboticcell ORDER BY \"RC_ID\" ASC",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "RoboticCell",
+  "uid": "MwHiNstMz",
+  "version": 6
+}

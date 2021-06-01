@@ -1,0 +1,943 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 2,
+  "iteration": 1620042551160,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "panels": [],
+      "repeat": "Pallet",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "title": "Pallet",
+      "type": "row"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT palletid\nFROM etpallet \nWHERE (substr(entity_id,20,4) IN ($Pallet))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "PalletID",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 4,
+        "y": 1
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT (time_index - timeofloading) as timeofloading\nFROM etpallet \nWHERE (substr(entity_id,20,4) IN ($Pallet))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Time since Loading",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 9,
+        "y": 1
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT  priority\nFROM etpallet \nWHERE (substr(entity_id,20,4) IN ($Pallet))\nORDER BY time_index DESC\nLIMIT 1;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Priority",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 19,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "content": "<img src=\"https://www.optidrive.be/themes/custom/optidrive/logo.svg\" style=\"width:360px;height:200px;\"/>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__time(time_column),\n  value1\nFROM\n  metric_table\nWHERE\n  $__timeFilter(time_column)\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pallet",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 4
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^refpalletlocation$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT  (substr(refpalletlocation,13,20)) as refpalletlocation\nFROM etpallet \nWHERE (substr(entity_id,20,4) IN ($Pallet))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "refcurrentlocation",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 4
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^goingto$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT  (substr(refgoingto,13,20)) as goingto\nFROM etpallet \nWHERE (substr(entity_id,20,4) IN ($Pallet))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "refgointo",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 8
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^manufacturabilityonflexedge$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT  manufacturabilityonflexedge\nFROM etpallet \nWHERE (substr(entity_id,20,4) IN ($Pallet))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "manufactureabilityonflexedge",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "max": 20,
+          "noValue": "No value",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 8
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^status$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "entity_id",
+          "rawQuery": true,
+          "rawSql": "SELECT  status\nFROM etpallet \nWHERE (substr(entity_id,20,4) IN ($Pallet))\nORDER BY time_index DESC\nLIMIT 1;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "errornumber"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "etroboticcell",
+          "timeColumn": "time_index",
+          "where": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "status",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "id": 28,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \"entity_id\",\"priority\",\"manufacturabilityonflexedge\",\"palletid\",\"refpalletlocation\",\"refgoingto\",\"status\",\"time_index\",\"timeofloading\" FROM \"doc\".\"etpallet\" WHERE (substr(entity_id,20,4) IN ($Pallet)) ORDER BY time_index DESC LIMIT 100;\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pallet log",
+      "type": "table"
+    },
+    {
+      "datasource": "CrateDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "dbindex"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 126
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "piece"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 433
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "manufacturabilityonflexedge"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 493
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Timestamp"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 450
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "location"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 343
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 32,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.2.1",
+      "scopedVars": {
+        "Pallet": {
+          "selected": true,
+          "text": "0001",
+          "value": "0001"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select substr(pp.\"entity_id\",19,6) as \"dbindex\",pp.\"pieceid\" as \"piece\", pp.\"manufacturabilityonflexedge\", substr(pp.\"refpiecelocation\",13,11) as location, aa.\"MaxTime\" as \"Timestamp\"\r\nfrom (select \"entity_id\", max(\"time_index\") as \"MaxTime\" from \"doc\".\"etpiece\" group by \"entity_id\") aa, \"doc\".\"etpiece\" as pp\r\nWHERE pp.\"time_index\" = aa.\"MaxTime\" and pp.\"entity_id\" = aa.\"entity_id\" and substr(pp.\"refpiecelocation\",20,4) = $Pallet order by \"sequencenumber\" asc",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pieces on pallet",
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "0001"
+          ],
+          "value": [
+            "0001"
+          ]
+        },
+        "datasource": "CrateDB",
+        "definition": "SELECT DISTINCT substr(entity_id,20,4) AS \"RC_ID\" FROM etpallet ORDER BY \"RC_ID\" ASC",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Pallet",
+        "multi": true,
+        "name": "Pallet",
+        "options": [],
+        "query": "SELECT DISTINCT substr(entity_id,20,4) AS \"RC_ID\" FROM etpallet ORDER BY \"RC_ID\" ASC",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Pallet_Overview",
+  "uid": "qqSppGEMz",
+  "version": 3
+}

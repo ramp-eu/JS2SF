@@ -1,0 +1,818 @@
+#definition of vacuumpump for FlexEdgeRobot from type VacuumPump
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+  "id": "urn:ngsi-ld:VacuumPump:FlexEdgePump",
+  "type": "VacuumPump",
+  "vacuumLevel": {
+    "type": "Number",
+    "value": 0.95
+  },
+  "on": {
+    "type": "Boolean",
+    "value": false
+  },
+  "pumpModel": {
+    "type": "Text",
+    "value": "VP 123a"
+  }
+}'
+#definition of vacuumpump for DuoCutRobot from type VacuumPump
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+  "id": "urn:ngsi-ld:VacuumPump:DuoCutPump",
+  "type": "VacuumPump",
+  "vacuumLevel": {
+    "type": "Number",
+    "value": 0.88
+  },
+  "on": {
+    "type": "Boolean",
+    "value": false
+  },
+  "pumpModel": {
+    "type": "Text",
+    "value": "VP 234b"
+  }
+}'
+#notification for vacuumlevel of all vacuumpumps
+curl -iX POST \
+  'http://localhost:1026/v2/subscriptions/' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "description": "Notify QuantumLeap on vacuum level and on/off changes on any vacuumpump",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": "urn:ngsi-ld:VacuumPump.*"
+      }
+    ],
+    "condition": {
+      "attrs": [
+        "vacuumLevel",
+        "on"
+      ]
+    }
+  },
+  "notification": {
+    "http": {
+      "url": "http://quantumleap:8668/v2/notify"
+    },
+    "attrs": [
+      "vacuumLevel", "on"
+    ],
+    "metadata": ["dateCreated", "dateModified"]
+  }
+}'
+  
+sleep 1
+
+###Model of ROBOTIC CELLS
+#definition of Flexedge of type RoboticCell
+#refOutgoingPallet contains the palletid from the pallet which is being loaded
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+  "id": "urn:ngsi-ld:RoboticCell:FlexEdge",
+  "type": "RoboticCell",
+  "refRobot": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Robot:FlexEdgeRobot"
+  },
+  "refVacuumPump": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:VacuumPump:FlexEdgePump"
+  },
+  "refIncomingPallet": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Pallet:0003"
+  },
+  "refOutgoingPallet": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Pallet:0004"  
+  },
+  "errorNumber": {
+    "type": "Integer",
+    "value": 0
+  },
+  "errorMessage": {
+    "type": "Text",
+    "value": ""
+  },
+  "totalNumberOfPieces": {
+    "type": "Integer",
+	"value": 0
+  },
+  "currentPieceNumber": {
+    "type": "Integer",
+	"value": 0
+  }  
+}'
+
+
+#definition of DuoCut item of type RoboticCell
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+  "id": "urn:ngsi-ld:RoboticCell:DuoCut",
+  "type": "RoboticCell",
+  "refRobot": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Robot:DuoCutRobot"
+  },
+  "refVacuumPump": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:VacuumPump:DuoCutPump"
+  },
+  "refIncomingPallet": {
+    "type": "Text",
+    "value": "Cutting Machine"
+  },
+  "refOutgoingPallet": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Pallet:0005"
+  },
+  "errorNumber": {
+    "type": "Integer",
+    "value": 0
+  },
+  "errorMessage": {
+    "type": "Text",
+    "value": ""
+  },
+  "totalNumberOfPieces": {
+    "type": "Integer",
+	"value": 0
+  },
+  "currentPieceNumber": {
+    "type": "Integer",
+	"value": 0
+  }  
+}'
+
+#notification on itemms of type RoboticCell when change in errornr, incoming and outgoing pallet, number of piece
+curl -iX POST \
+  'http://localhost:1026/v2/subscriptions/' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "description": "Notify QuantumLeap on errorNumber changes on urn:ngsi-ld:RoboticCell.*",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": "urn:ngsi-ld:RoboticCell.*"
+      }
+    ],
+    "condition": {
+      "attrs": [
+        "errorNumber",
+        "refIncomingPallet",
+		"refOutgoingPallet",
+		"totalNumberOfPieces",
+		"currentPieceNumber"		
+      ]
+    }
+  },
+  "notification": {
+    "http": {
+      "url": "http://quantumleap:8668/v2/notify"
+    },
+    "attrs": [
+      "errorNumber",
+      "errorMessage",
+      "refIncomingPallet",
+  	  "refOutgoingPallet",
+	  "totalNumberOfPieces",
+	  "currentPieceNumber"			  
+    ],
+    "metadata": ["dateCreated", "dateModified"]
+  }
+}'
+
+
+sleep 1
+
+
+#request data from RoboticCell:FlexEdge item
+curl -iX POST \
+  'http://localhost:4200/_sql' \
+  -H 'Content-Type: application/json' \
+  -d '{"stmt":"SELECT * FROM etroboticcell WHERE entity_id = '\''urn:ngsi-ld:RoboticCell:FlexEdge'\'' ORDER BY time_index ASC"}'
+
+#request data from RoboticCell:DuoCut item
+curl -iX POST \
+  'http://localhost:4200/_sql' \
+  -H 'Content-Type: application/json' \
+  -d '{"stmt":"SELECT * FROM etroboticcell WHERE entity_id = '\''urn:ngsi-ld:RoboticCell:DuoCut'\'' ORDER BY time_index ASC"}'
+ 
+
+
+sleep 1
+###Making Model for ROBOT itself
+#defnition of Flexedgerobot of type robot
+#jobCurrentState values : (loading,unloading,polishing,sawing,measuring ....)
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+ {
+  "id": "urn:ngsi-ld:Robot:FlexEdgeRobot",
+  "type": "Robot",
+  "robotID": {
+    "type": "Text",
+    "value": "FlexEdgeRobot"
+  },
+  "robotModel": {
+    "type": "Text",
+    "value": "KR300R3000"
+  },
+  "toolID": {
+    "type": "Integer",
+    "value": 0
+  },
+  "jobCurrentState": {
+    "type": "Text",
+    "value": ""  
+  },
+  "axis1": { 
+	"type": "Number",
+	"value": 30
+  },
+  "axis2": { 
+	"type": "Number",
+	"value": 14
+  },
+  "axis3": { 
+	"type": "Number",
+	"value": -55
+  },
+  "axis4": { 
+	"type": "Number",
+	"value": 174
+  },
+  "axis5": { 
+	"type": "Number",
+	"value": 145
+  },
+  "axis6": { 
+	"type": "Number",
+	"value": -37
+  },
+  "status": {
+    "type": "Text",
+	"value": "#P_ACTIVE"
+  }
+}'
+  
+#defnition of DuoCutrobot of type robot
+# jobCurrentState values : (loading,unloading,printing ....)
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+ {
+  "id": "urn:ngsi-ld:Robot:DuoCutRobot",
+  "type": "Robot",
+  "robotID": {
+    "type": "Text",
+    "value": "DuoCutRobot"
+  },
+  "robotModel": {
+    "type": "Text",
+    "value": "KR400R3300"
+  },
+  "toolID": {
+    "type": "Integer",
+    "value": 1
+  },
+  "jobCurrentState": {
+    "type": "Text",
+    "value": ""  
+  },
+  "axis1": { 
+	"type": "Number",
+	"value": 122
+  },
+  "axis2": { 
+	"type": "Number",
+	"value": -25
+  },
+  "axis3": { 
+	"type": "Number",
+	"value": 87
+  },
+  "axis4": { 
+	"type": "Number",
+	"value": 104
+  },
+  "axis5": { 
+	"type": "Number",
+	"value": -55
+  },
+  "axis6": { 
+	"type": "Number",
+	"value": 12
+  },
+  "status": {
+    "type": "Text",
+	"value": "#P_FREE"
+  }
+}'
+
+
+#notification on items of type robot
+curl -iX POST \
+  'http://localhost:1026/v2/subscriptions/' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "description": "Notify QuantumLeap on changes on urn:ngsi-ld:Robot.*",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": "urn:ngsi-ld:Robot.*"
+      }
+    ],
+    "condition": {
+      "attrs": [
+        "toolID",
+        "jobCurrentstate",
+		"robotModel",
+	    "axis1",
+	    "axis2",
+	    "axis3",
+	    "axis4",
+	    "axis5",
+	    "axis6",
+        "status"
+      ]
+    }
+  },
+  "notification": {
+    "http": {
+      "url": "http://quantumleap:8668/v2/notify"
+    },
+    "attrs": [
+      "toolID",
+      "jobCurrentstate",
+      "robotModel",
+	  "axis1",
+	  "axis2",
+	  "axis3",
+	  "axis4",
+	  "axis5",
+	  "axis6",
+      "status"
+    ],
+    "metadata": ["dateCreated", "dateModified"]
+  }  
+}'
+
+
+sleep 1
+
+
+
+sleep 1
+#request data from the Flexedgerobotitem
+curl -iX POST \
+  'http://localhost:4200/_sql' \
+  -H 'Content-Type: application/json' \
+  -d '{"stmt":"SELECT * FROM etrobot WHERE entity_id = '\''urn:ngsi-ld:Robot:FlexEdgeRobot'\'' ORDER BY time_index ASC"}'
+  
+
+
+
+sleep 1
+#request data from the DuoCut robot item
+curl -iX POST \
+  'http://localhost:4200/_sql' \
+  -H 'Content-Type: application/json' \
+  -d '{"stmt":"SELECT * FROM etrobot WHERE entity_id = '\''urn:ngsi-ld:Robot:DuoCutRobot'\'' ORDER BY time_index ASC"}'
+  
+#MODEL of the pieces
+# pieceID is made unique
+# refpieceLocation : (FlexEdgeRobot, DuoCutRobot, palletID)
+# status : (Created, OnPallet, Finished)
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+  "id": "urn:ngsi-ld:Piece:UniquePieceID",
+  "type": "Piece",
+  "pieceID": {
+    "type": "Text",
+    "value": "1234"   
+  },
+  "dateCreated": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+  },
+  "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": "CanProcess"
+  },
+  "timeEstimatedOnFlexEdge":{
+	  "type" : "Number",
+	  "value": 600
+  },
+  "weight": {
+    "type" : "Number",
+    "value": 42
+  },
+  "sequenceNumber": {
+    "type" : "Number",
+    "value": 1
+  },
+  "refpieceLocation": {
+    "type" : "Text",
+    "value": "urn:ngsi-ld:Robot:DuoCutRobot"  
+  },
+  "status": {
+    "type" : "Text",
+    "value": "Created"  
+  }
+}'
+
+
+#notifications on the piece items
+curl -iX POST \
+  'http://localhost:1026/v2/subscriptions/' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "description": "Notify QuantumLeap on changes on urn:ngsi-ld:Piece.*",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": "urn:ngsi-ld:Piece.*"
+      }
+    ],
+    "condition": {
+      "attrs": [
+        "refpieceLocation",
+		"manufacturabilityOnFlexEdge",
+		"status"
+      ]
+    }
+  },
+  "notification": {
+    "http": {
+      "url": "http://quantumleap:8668/v2/notify"
+    },
+    "attrs": [
+      "pieceID",
+      "dateCreated",
+      "refpieceLocation",
+      "manufacturabilityOnFlexEdge",
+      "sequenceNumber",
+	  "weight",
+	  "status"
+    ],
+    "metadata": ["dateCreated", "dateModified"]
+  }
+}'
+
+sleep 1
+
+#request all data from a piece knowing its id
+curl -iX POST \
+  'http://localhost:4200/_sql' \
+  -H 'Content-Type: application/json' \
+  -d '{"stmt":"SELECT * FROM etpiece WHERE entity_id = '\''urn:ngsi-ld:Piece:UniquePieceID'\'' ORDER BY time_index ASC"}'
+  
+
+
+#command to look up the piece which is on the duocut or flexedge
+curl -iX POST \
+  'http://localhost:4200/_sql' \
+  -H 'Content-Type: application/json' \
+  -d '{"stmt":"SELECT * FROM etpiece WHERE entity_id = '\''urn:ngsi-ld:Piece:DuoCutPiece'\'' ORDER BY time_index ASC"}'
+
+
+
+#MODEL OF PALLETS
+#creation of pallet 10
+#status can be empty,loading,unloading,filled
+#refpalletLocation or refGoingTo can be shopfloor,duo,flexedge, unloadstation, loadstation
+#status : loading, unloading, empty, filled
+
+
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0004",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0004"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": ""
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": ""
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 99
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0005",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0005"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": ""
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": ""
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 99
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0006",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0006"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": ""
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": ""
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 99
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0007",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0007"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": ""
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": ""
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 99
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0008",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0008"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": ""
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": ""
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 99
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0009",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0009"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": ""
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": ""
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 99
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0010",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0010"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": ""
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": ""
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 99
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+
+#notifications for all pallet items
+curl -iX POST \
+  'http://localhost:1026/v2/subscriptions/' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "description": "Notify QuantumLeap of changes on any pallet",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": "urn:ngsi-ld:Pallet.*"
+      }
+    ],
+    "condition": {
+      "attrs": [
+        "timeOfLoading",
+        "refpalletLocation",
+		"refGoingTo",
+		"manufacturabilityOnFlexEdge",
+		"priority",
+		"status"
+      ]
+    }
+  },
+  "notification": {
+    "http": {
+      "url": "http://quantumleap:8668/v2/notify"
+    },
+    "attrs": [
+		"palletID",
+		"timeOfLoading",
+        "refpalletLocation",
+		"refGoingTo",
+		"manufacturabilityOnFlexEdge",
+		"priority",
+		"status"
+    ],
+    "metadata": ["dateCreated", "dateModified"]
+  }
+}'
+
+sleep 1
+#request data from pallet0001
+curl -iX POST \
+  'http://localhost:4200/_sql' \
+  -H 'Content-Type: application/json' \
+  -d '{"stmt":"SELECT * FROM etpallet WHERE entity_id = '\''urn:ngsi-ld:Pallet:0001'\'' ORDER BY time_index ASC"}'
+  
+sleep 1
+
+
+
+
