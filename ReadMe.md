@@ -3,6 +3,7 @@
 
 (making use of the KukaConnect software option)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6809f2d81ba94342baff450a3a411e6b)](https://app.codacy.com/gh/ramp-eu/JS2SF?utm_source=github.com&utm_medium=referral&utm_content=ramp-eu/JS2SF&utm_campaign=Badge_Grade_Settings)
 [![License: Apache](https://img.shields.io/github/license/ramp-eu/JS2SF.svg)](https://www.apache.org/licenses/LICENSE-2.0.html#redistribution)
 <br/>
 [![Documentation Status](https://readthedocs.org/projects/js2sf/badge/?version=latest)](https://js2sf.readthedocs.io/en/latest/?badge=latest)
