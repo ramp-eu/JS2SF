@@ -155,7 +155,7 @@ First install following softwares to get the test environment  running :
 
   - https://github.com/ramp-eu/JS2SF/tree/master/docker/docker-compose.yml
   - https://github.com/ramp-eu/JS2SF/tree/master/docker/services
-  - https://github.com/ramp-eu/JS2SF/tree/master/docker/Datagenerator_tutorial
+  - https://github.com/ramp-eu/JS2SF/tree/master/docker/DataGenerator_tutorial
 
 ### 
 
