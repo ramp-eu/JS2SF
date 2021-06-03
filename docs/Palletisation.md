@@ -28,11 +28,90 @@ In order to digitize the factory we used the following data-models :
 
 - the piece , representing the piece to be manufactured . A piece has a production code (barcode). Unfortunately this code was not unique  so we created a unique identifier to distinguish between different pieces.  The piece is created by the first robot in our case. In order to retrieve the piece in the factory its model contains a location field. The possible values for this location are in our case : Duocutrobot, PalletID, FlexEdgeRobot.
 
-  Code example in Curl
+```
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+  "id": "urn:ngsi-ld:Piece:1234",
+  "type": "Piece",
+  "pieceID": {
+    "type": "Text",
+    "value": "1234"   
+  },
+  "dateCreated": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+  },
+  "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": "CanProcess"
+  },
+  "timeEstimatedOnFlexEdge":{
+	  "type" : "Number",
+	  "value": 600
+  },
+  "weight": {
+    "type" : "Number",
+    "value": 42
+  },
+  "sequenceNumber": {
+    "type" : "Number",
+    "value": 1
+  },
+  "refpieceLocation": {
+    "type" : "Text",
+    "value": "urn:ngsi-ld:Robot:DuoCutRobot"  
+  },
+  "status": {
+    "type" : "Text",
+    "value": "Created"  
+  }
+}'
+
+```
 
 - the pallet , containing several production pieces. It is a container of pieces. Every pallet has a unique identifier, this is a barcode  which is printed on the front side of the pallet. The first time the pallet appears in the system (when the first piece ever is put on it) an instance of the pallet is generated on the context broker. To retrieve the pallet in the factory its location is primordial. Possible values are :  Duocutrobot, Shopfloor, FlexEdgeRobot, Unloading.
 
-  Code example in Curl
+```
+curl -iX POST \
+  'http://localhost:1026/v2/entities' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+    "id": "urn:ngsi-ld:Pallet:0001",
+    "type": "Pallet",
+    "palletID":{
+      "type" : "Text",
+      "value": "0001"
+    },
+    "timeOfLoading": {
+      "type" : "DateTime",
+      "value": "2000-01-01T00:00:00Z"
+    },											
+    "refpalletLocation":{
+      "type" : "Text",
+      "value": "shopfloor"
+    },
+    "refGoingTo":{
+      "type" : "Text",
+      "value": "FlexEdgeRobot"
+    },
+    "manufacturabilityOnFlexEdge":{
+      "type" : "Text",
+      "value": "CanProcess"
+    },
+    "priority": {
+        "type": "Integer",
+        "value": 3
+    },
+	"status": {
+        "type": "Text",
+        "value": "empty"    
+    }
+}'
+```
 
 - the robot-arm itself, containing a limited data set of the industrial robot itself.  The datamodel in this tutorial is the previous (old) version of the robotarm datamodel. 
 
@@ -44,7 +123,7 @@ In order to digitize the factory we used the following data-models :
 
 
 
-In this [RoseAP](https://github.com/ramp-eu/JS2SF/blob/master/ReadMe.md) a more a further developed and more detailed model of the robotarm is used.
+In the [RoseAP](https://github.com/ramp-eu/JS2SF/blob/master/ReadMe.md) a more a further developed and more detailed model of the robotarm is used.
 
 
 
@@ -67,7 +146,7 @@ First install following softwares to get the test environment  running :
   After installation of Cygwin, add the dos2unix command to cygwin :
 
   - ​	Open a cmd window
-  - ​	Browse to the directory where he cygwin  installer is located
+  - ​	Browse to the directory where the cygwin  installer is located
   - ​    Execute following command :  setup-x86_64.exe -q -P dos2unix
 
 - Install Docker Desktop on Windows from https://docs.docker.com/docker-for-windows/install/, choose a Hyper-V backend.
@@ -76,7 +155,7 @@ First install following softwares to get the test environment  running :
 
   - https://github.com/ramp-eu/JS2SF/tree/master/docker/docker-compose.yml
   - https://github.com/ramp-eu/JS2SF/tree/master/docker/services
-  - https://github.com/ramp-eu/JS2SF/tree/master/docker/Datagenerator_Tutorial
+  - https://github.com/ramp-eu/JS2SF/tree/master/docker/Datagenerator_tutorial
 
 ### 
 
@@ -91,7 +170,7 @@ First install following softwares to get the test environment  running :
 Make sure the script files have Linux line endings by executing :
 
 ```
-dos2unix DataGenerator_Tutorial
+dos2unix DataGenerator_tutorial
 dos2unix services
 ```
 
@@ -120,7 +199,7 @@ If the installation went well you'll get some Orion version information Also Cra
 To create all entities and notifications on the Orion Context Broker a bash script file is prepared. Execute it using the following command :
 
 ```
-./DataGenerator_Tutorial
+./DataGenerator_tutorial
 ```
 
 Now the Orion Contect Broker is up and running.
@@ -359,7 +438,7 @@ curl -iX POST \
 	  },
 	  "refpieceLocation": {
 		"type" : "Text",
-		"value": "urn:ngsi-ld:Pallet:0007"  
+		"value": "urn:ngsi-ld:Pallet:0001"  
 	  },
 	  "weight": {
 		"type" : "Number",
@@ -537,33 +616,97 @@ curl -iX POST \
     "value": "urn:ngsi-ld:Pallet:0002"  
   }
 }'
-
-
 ```
 
 ###### Change the location of the pallets
 
-Put the location of the pallets to shopfloor
+Put the location of a pallet to shopfloor
 
-
+```
+curl -iX POST \
+  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Pallet:0001/attrs' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "refpalletLocation": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Location:ShopFloor"
+	}
+}'  
+```
 
 ###### Put a pallet in a robotic cell
 
 Load the pallet with id pallet0001 in the Flexedgerobot.
 
+```
+curl -iX POST \
+  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Pallet:0001/attrs' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "refpalletLocation": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Robot:FlexEdge"
+	}
+}'  
+```
 
 
-###### Take the piece wit the robot
+###### Take the piece with the robot
 
 Transfer piece from pallet to robot
 
-
+```
+curl -iX POST \
+  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Piece:0001/attrs' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "refpieceLocation": {
+	"type" : "Text",
+	"value": "urn:ngsi-ld:Robot:FlexEdge"
+	}
+}'  
+```
 
 ###### Change the status of the robot
 
 put the robot status to active, change its axis values 
 
 
+```
+curl -iX POST \
+  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Robot:FlexEdgeRobot/attrs' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "status": {
+	"type": "Text",
+	"value": "#P_ACTIVE"
+  },
+  "axis1": { 
+	"type": "Number",
+	"value": 30
+  },
+  "axis2": { 
+	"type": "Number",
+	"value": 14
+  },
+  "axis3": { 
+	"type": "Number",
+	"value": -55
+  },
+  "axis4": { 
+	"type": "Number",
+	"value": 174
+  },
+  "axis5": { 
+	"type": "Number",
+	"value": 145
+  },
+  "axis6": { 
+	"type": "Number",
+	"value": -37
+  }
+}'  
+```
 
 ###### Control the vacuumpump data
 
@@ -606,127 +749,40 @@ curl -iX POST \
 
 Transfer piece from robot to pallet (pallet0003)
 
-
+```
+curl -iX POST \
+  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Piece:0001/attrs' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "refpieceLocation": {
+	"type" : "Text",
+	"value": "urn:ngsi-ld:Pallet:0003"
+	}
+}'  
+```
 
 ###### Empty the pallet
 
 Special measures had to be taken when a piece is unloaded from a pallet. We needed an indicator on the time based database (cratedb) to know if the piece was still on a pallet or has been unloaded. So before reusing the pallet you have to make sure that all  pieces are put on pallet9999 for a short while and are subsequently deleted. In this code we delete all pieces from pallet0003.
 
-
+```
+curl -iX POST \
+  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Piece:0003/attrs' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "refpieceLocation": {
+	"type" : "Text",
+	"value": "urn:ngsi-ld:Pallet:9999"
+	}
+}'  
+```
 
 ###### Query used in grafana for piecelist on a pallet
 
 Query grafana to select the actual pieces on the pallet using the data in the cratedb (timebased database). Problem here is that in the timebased database all history is stored but to know the actual list of pieces all old ones needs to be removed and put on another (non existing) pallet with id pallet9999.
 
-
-
 ```
-
-#put some data in Flexedge Item
-curl -iX POST \
-  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:RoboticCell:FlexEdge/attrs' \
-  --header 'Content-Type: application/json' \
-  --data '{
-  "errorNumber": {
-    "type": "Integer",
-    "value": 5
-  },
-  "errorMessage": {
-    "type" : "Text",
-    "value": "Errormsg FlexEdge 5"
-  }
-}'  
-
-
-#put some data in DuoCut Item
-curl -iX POST \
-  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:RoboticCell:DuoCut/attrs' \
-  --header 'Content-Type: application/json' \
-  --data '{
-  "errorNumber": {
-    "type": "Integer",
-    "value": 11
-  },
-  "errorMessage": {
-    "type" : "Text",
-    "value": "Errormsg 11"
-  }
-}'  
-
-
-sleep 1
-
-#update data on Flexedge Roboticcell
-curl -iX POST \
-  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:RoboticCell:FlexEdge/attrs' \
-  --header 'Content-Type: application/json' \
-  --data '{
-  "refIncomingPallet": {
-    "type": "Text",
-    "value": "urn:ngsi-ld:Pallet:0006"
-  },
-  "refOutgoingPallet": {
-    "type" : "Text",
-    "value": "urn:ngsi-ld:Pallet:0007"
-  },
-  "totalNumberOfPieces": {
-    "type": "Integer",
-	"value": 9
-  },
-  "currentPieceNumber": {
-    "type": "Integer",
-	"value": 7
-  }  
-}'  
-
-#request data from RoboticCell:DuoCut item
-curl -iX POST \
-  'http://localhost:4200/_sql' \
-  -H 'Content-Type: application/json' \
-  -d '{"stmt":"SELECT * FROM etroboticcell WHERE entity_id = '\''urn:ngsi-ld:RoboticCell:DuoCut'\'' ORDER BY time_index ASC"}'
- 
- 
- 
- #put some data in the item Flexedgerobot of type Robot
-curl -iX POST \
-  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Robot:FlexEdgeRobot/attrs' \
-  --header 'Content-Type: application/json' \
-  --data '{
-  "toolID": {
-    "type": "Integer",
-    "value": 3
-  },
-  "jobCurrentState": {
-    "type": "Text",
-    "value": "polishing"
-  }
-}'  
-#put some data in the item DuoCutrobot of type Robot
-curl -iX POST \
-  --url 'http://localhost:1026/v2/entities/urn:ngsi-ld:Robot:DuoCutRobot/attrs' \
-  --header 'Content-Type: application/json' \
-  --data '{
-   "jobCurrentState": {
-    "type": "Text",
-    "value": "unloading"
-  }
-}'  
-
-#request data from the Flexedgerobotitem
-curl -iX POST \
-  'http://localhost:4200/_sql' \
-  -H 'Content-Type: application/json' \
-  -d '{"stmt":"SELECT * FROM etrobot WHERE entity_id = '\''urn:ngsi-ld:Robot:FlexEdgeRobot'\'' ORDER BY time_index ASC"}'
-  
-
-
-
-sleep 1
-#request data from the DuoCut robot item
-curl -iX POST \
-  'http://localhost:4200/_sql' \
-  -H 'Content-Type: application/json' \
-  -d '{"stmt":"SELECT * FROM etrobot WHERE entity_id = '\''urn:ngsi-ld:Robot:DuoCutRobot'\'' ORDER BY time_index ASC"}'
+select substr(pp.\"entity_id\",19,6) as \"dbindex\",pp.\"pieceid\" as \"piece\", pp.\"manufacturabilityonflexedge\", substr(pp.\"refpiecelocation\",13,11) as location, aa.\"MaxTime\" as \"Timestamp\"\r\nfrom (select \"entity_id\", max(\"time_index\") as \"MaxTime\" from \"doc\".\"etpiece\" group by \"entity_id\") aa, \"doc\".\"etpiece\" as pp\r\nWHERE pp.\"time_index\" = aa.\"MaxTime\" and pp.\"entity_id\" = aa.\"entity_id\" and substr(pp.\"refpiecelocation\",20,4) = $Pallet order by \"sequencenumber\" asc"
   
 ```
 
