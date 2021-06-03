@@ -125,6 +125,7 @@ curl -iX POST \
 
 In the [RoseAP](https://github.com/ramp-eu/JS2SF/blob/master/ReadMe.md) a more a further developed and more detailed model of the robotarm is used.
 
+For the visualisation in Grafana we use a timebased database (cratedb). The data from the Orion Context Broker is put into this database making use of notifications on the ContextBroker and of quatumleap. However Quantumleap only handles the simple datatypes in a correct way. That is why we realized our datamodels avoiding the use of references and arrays. We replaced them by using strings and by splitting up arrays into single elements.
 
 
 
