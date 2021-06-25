@@ -29,9 +29,10 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 -   [Install](#install)
 -   [Usage](#usage)
 -   [API](#api)
+-   [YouTube](#youtube)
 -   [Testing](#testing)
 -   [License](#license)
--   [YouTube](#youtube)
+
 
 ## Background<a name="background"></a>
 
