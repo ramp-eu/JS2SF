@@ -137,7 +137,7 @@ Now the Orion Contect Broker is up and running.
   <TCP_Used>true</TCP_Used>
   <TCP_LocalPort>9901</TCP_LocalPort>
   <TCP_RemotePort>9903</TCP_RemotePort>
-  <UDP_Used>true</UDP_Used>
+  <UDP_Used>false</UDP_Used>
   <UDP_LocalPort>9902</UDP_LocalPort>
   <UDP_RemotePort>9904</UDP_RemotePort>
   <NetworkTimeout>2000</NetworkTimeout>
