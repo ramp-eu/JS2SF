@@ -171,7 +171,7 @@ First install following softwares to get the test environment  running :
 Make sure the script files have Linux line endings by executing :
 
 ```
-dos2unix DataGenerator_tutorial
+dos2unix DataGenerator_palletisation
 dos2unix services
 ```
 
@@ -200,7 +200,7 @@ If the installation went well you'll get some Orion version information Also Cra
 To create all entities and notifications on the Orion Context Broker a bash script file is prepared. Execute it using the following command :
 
 ```
-./DataGenerator_tutorial
+./DataGenerator_palletisation
 ```
 
 Now the Orion Contect Broker is up and running.
