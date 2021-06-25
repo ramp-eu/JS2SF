@@ -27,7 +27,7 @@ stoppingContainers () {
 	# down command removes all data !
 #    docker-compose --log-level ERROR -p fiware down -v --remove-orphans
 #	docker-compose --log-level ERROR -p fiware stop
-     docker-compose -f docker-compose.yml -f docker-compose-sql-connector.yml --log-level DEBUG -p fiware stop
+     docker-compose -f docker-compose.yml --log-level DEBUG -p fiware stop
 }
 
 displayServices () {
@@ -71,10 +71,8 @@ case "${command}" in
         echo -e "- \033[1;34mQuantumLeap\033[0m will write to CrateDB"
         echo -e "- \033[1mGrafana\033[0m will read from CrateDB"
         echo ""
-        docker-compose -f docker-compose.yml -f docker-compose-sql-connector.yml --log-level DEBUG -p fiware up -d --remove-orphans
+        docker-compose -f docker-compose.yml --log-level DEBUG -p fiware up -d --remove-orphans
         sleep 3
-        # restart perso front end after perseo core is up
-        docker restart perseo-fe
         loadData
         displayServices
         ;;
