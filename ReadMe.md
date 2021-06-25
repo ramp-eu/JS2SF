@@ -31,6 +31,7 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 -   [API](#api)
 -   [Testing](#testing)
 -   [License](#license)
+-   [youtube](#youtube)
 
 ## Background<a name="background"></a>
 
@@ -85,7 +86,9 @@ Information about how to use the the connectivity kit can be found in the [User 
 
 More information about  the internal structure  (available functions and use data model)of the RoseAp can be found in [API documentation](docs/api.md)
 
-
+## YouTube <a name="youtube"></a>
+In the you tube channel you can find videos demonstrating the step by step tutorial.
+https://studio.youtube.com/channel/UCkh0eWQhH2lQIPBhh5GVMGg/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D
 
 ## Testing<a name="testing"></a>
 
