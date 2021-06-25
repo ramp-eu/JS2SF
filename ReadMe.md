@@ -88,7 +88,14 @@ More information about  the internal structure  (available functions and use dat
 
 ## YouTube <a name="youtube"></a>
 In the you tube channel you can find videos demonstrating the step by step tutorial.
-https://studio.youtube.com/channel/UCkh0eWQhH2lQIPBhh5GVMGg/videos/upload?filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D
+[RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0)
+[RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg)
+[RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0)
+[RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU)
+[RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw)
+[RoseAP PartVI Atomic tests](https://www.youtube.com/watch?v=Yc3v1ncs2xE)
+[RoseAP PartVII Clean up the containers] (https://www.youtube.com/watch?v=eZWRKvjKiwA)
+
 
 ## Testing<a name="testing"></a>
 
