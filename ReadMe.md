@@ -31,7 +31,7 @@ This project is part of [DIH^2](http://www.dih-squared.eu/). For more informatio
 -   [API](#api)
 -   [Testing](#testing)
 -   [License](#license)
--   [youtube](#youtube)
+-   [YouTube](#youtube)
 
 ## Background<a name="background"></a>
 
@@ -88,13 +88,13 @@ More information about  the internal structure  (available functions and use dat
 
 ## YouTube <a name="youtube"></a>
 In the you tube channel you can find videos demonstrating the step by step tutorial.
-[RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0)
-[RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg)
-[RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0)
-[RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU)
-[RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw)
-[RoseAP PartVI Atomic tests](https://www.youtube.com/watch?v=Yc3v1ncs2xE)
-[RoseAP PartVII Clean up the containers] (https://www.youtube.com/watch?v=eZWRKvjKiwA)
+- [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0)
+- [RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg)
+- [RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0)
+- [RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU)
+- [RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw)
+- [RoseAP PartVI Atomic tests](https://www.youtube.com/watch?v=Yc3v1ncs2xE)
+- [RoseAP PartVII Clean up the containers] (https://www.youtube.com/watch?v=eZWRKvjKiwA)
 
 
 ## Testing<a name="testing"></a>
