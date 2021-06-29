@@ -11,7 +11,7 @@ In these you tube video's, you can find demonstrations of the step by step tutor
 - The two following videos demonstrate how to set up [the grafana environment](#grafana).  At the end of the first video : [RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0),  i run into a grafana configuration problem. In the next video: [RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU) you can find the correction i had to make.
 - In the video [RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw) you can find informtion about the setup for [the RoseAP and the Robotsimulator](#roseap).
 - [RoseAP PartVI Atomic tests](https://www.youtube.com/watch?v=Yc3v1ncs2xE) is about testing the RoseAP whitout the robotsimulator. More explanation are [here](#atomictests)
-- [RoseAP PartVII Clean up the containers](https://www.youtube.com/watch?v=eZWRKvjKiwA) explains a way to clean up the environment and [stop the context broker] (#stopping).
+- [RoseAP PartVII Clean up the containers](https://www.youtube.com/watch?v=eZWRKvjKiwA) explains a way to clean up the environment and [stop the context broker](#stopping).
 
 
 
