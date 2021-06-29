@@ -91,7 +91,7 @@ More information about  the internal structure  (available functions and use dat
 
 In these you tube video's, you can find demonstrations of the step by step tutorial.
 
-- The video [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0) shows how to perform the [installation in windows](docs/gettingstarted.md#installation-in-windows) of all the needed software components.
+- The video [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0) shows how to perform the [installation in windows](docs/getting-started.md#installation-in-windows) of all the needed software components.
 - The next video [RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg) demonstrates what you have to do to set up the [context broker](#starttheorioncontextbroker)
 - The two following videos demonstrate how to set up [the grafana environment](#grafana).  At the end of the first video : [RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0),  i run into a grafana configuration problem. In the next video: [RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU) you can find the correction i had to make.
 - In the video [RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw) you can find informtion about the setup for [the RoseAP and the Robotsimulator](#roseap).
