@@ -91,7 +91,7 @@ More information about  the internal structure  (available functions and use dat
 In the you tube channel you can find videos demonstrating the step by step tutorial.
 - [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0)
 - [RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg)
-- [RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0)
+- [RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0). At the end of this video you i run into a configuration problem. In the next video (RoseAP PartIVConfiguring Grafana part2) you can find the correction i had to make.
 - [RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU)
 - [RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw)
 - [RoseAP PartVI Atomic tests](https://www.youtube.com/watch?v=Yc3v1ncs2xE)
