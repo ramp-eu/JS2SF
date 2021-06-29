@@ -4,14 +4,14 @@
 
 This page is a guide to test out the component in a quick way. It uses a preconfigured docker-compose file, a grafana dashboard and a preconfigured robotsimulator combined with the RoseAP.
 
-In these you tube video's, you can find demonstartions of the step by step tutorial.
+In these you tube video's, you can find demonstrations of the step by step tutorial.
 
-- [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0) is demonstrating what is explained in the section : [installation in windows](#installation-in-windows)
-- [RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg) is demonstrating what you have to do to set up the [context broker](#starttheorioncontextbroker)
+- [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0) shows how to perform the [installation in windows](#installation-in-windows) of all the needed software components.
+- [RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg) demonstrates what you have to do to set up the [context broker](#starttheorioncontextbroker)
 - The two following videos demonstrate how to set up [the grafana environment](#grafana).  At the end of the first video : [RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0),  i run into a grafana configuration problem. In the next video: [RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU) you can find the correction i had to make.
-- [RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw) Here you can find informtion about the setup for [the RoseAP and the Robotsimulator](#roseap).
+- In the video [RoseAP PartV Settingup the RoseAP + Robotsimulator](https://www.youtube.com/watch?v=BpVdY4MrLMw) you can find informtion about the setup for [the RoseAP and the Robotsimulator](#roseap).
 - [RoseAP PartVI Atomic tests](https://www.youtube.com/watch?v=Yc3v1ncs2xE) is about testing the RoseAP whitout the robotsimulator. More explanation are [here](#atomictests)
-- [RoseAP PartVII Clean up the containers](https://www.youtube.com/watch?v=eZWRKvjKiwA)
+- [RoseAP PartVII Clean up the containers](https://www.youtube.com/watch?v=eZWRKvjKiwA) explains a way to clean up the environment and [stop the context broker] (#Stop the Orion Context Broker).
 
 
 
