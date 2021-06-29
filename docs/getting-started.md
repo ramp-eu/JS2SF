@@ -6,7 +6,8 @@ This page is a guide to test out the component in a quick way. It uses a preconf
 
 In this you tube channel you can find videos demonstrating the step by step tutorial.
 
-- [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0)(https://js2sf.readthedocs.io/en/latest/getting-started.html#installation-in-windows)
+- [RoseAP PartI SoftwareInstallation](https://www.youtube.com/watch?v=npqQ6tkVAN0)
+- [explanation](https://js2sf.readthedocs.io/en/latest/getting-started.html#installation-in-windows)
 - [RoseAP PartII Starting the OrionContextBroker](https://www.youtube.com/watch?v=CTJp41MulPg)
 - [RoseAP PartIII Configuring Grafana part1](https://www.youtube.com/watch?v=ISLZedSzbX0). At the end of this video you i run into a configuration problem. In the next video (RoseAP PartIVConfiguring Grafana part2) you can find the correction i had to make.
 - [RoseAP PartIVConfiguring Grafana part2](https://www.youtube.com/watch?v=vVRnSDgO8ZU)
