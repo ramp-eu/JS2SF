@@ -70,7 +70,7 @@ As an endpoint for our demonstrations and use cases we use the graphical user in
 More information about how to install the connectivity kit can be found at the corresponding section of the
 [Installation & Administration Guide](docs/installationguide.md).
 
-A `Dockerfile` is also available for your use - further information can be found [here](https://github.com/ramp-eu/JS2SF/tree/master/docker)
+A `Docker-compose file` is also available for your use - further information can be found [here](https://github.com/ramp-eu/JS2SF/tree/master/docker)
 
 
 
