@@ -17,7 +17,7 @@ shorter by using this ROSE-AP.
 This project is part of [DIH^2](http://www.dih-squared.eu/). For more information check the RAMP Catalogue entry for the
 [components](https://github.com/xxx).
 
-| :books: [Documentation](https://js2sf.readthedocs.io/en/latest/) | :whale: [Docker Hub](https://hub.docker.com/r/link-to-docker) |
+| :books: [Documentation](https://js2sf.readthedocs.io/en/latest/) | :whale: [Docker-compose File](https://github.com/ramp-eu/JS2SF/tree/master/docker) |
 | --------------------------------------------- | ------------------------------------------------------------- |
 
 
