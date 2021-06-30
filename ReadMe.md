@@ -10,7 +10,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4816/badge)](https://bestpractices.coreinfrastructure.org/projects/4816)
 
 This software allows all owners of Kuka robots to connect to the Fiware-ecosystem and make use of all the software components available
-in RAMP (ex. Grafana). The tutorials and the predefined use-cases are an inspiration to start with. In case of the simple implementations just following the step by step tutorial will be sufficient.. For more advanced implementations, a little more is needed but the solution can grow with more advanced requirements. In both cases the development time is considerable 
+in RAMP (ex. Grafana). The tutorials and the predefined use-cases are an inspiration to start with. In case of the simple implementation, just following the step by step tutorial will be sufficient. For more advanced implementations, a little more is needed but the solution can grow with more advanced requirements. In both cases the development time is considerable 
 shorter by using this ROSE-AP.
 
 
